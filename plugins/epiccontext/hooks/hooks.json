@@ -9,7 +9,7 @@
           },
           {
             "type": "command",
-            "command": "\"${CLAUDE_PLUGIN_ROOT}\"/hooks/scripts/context-sync-check.sh session-start"
+            "command": "\"${CLAUDE_PLUGIN_ROOT}\"/hooks/scripts/sync-check.sh session-start"
           }
         ]
       }
@@ -25,12 +25,23 @@
         ]
       }
     ],
+    "PostToolUse": [
+      {
+        "matcher": "mcp__.*__get_briefing",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"${CLAUDE_PLUGIN_ROOT}\"/hooks/scripts/record-briefing.sh"
+          }
+        ]
+      }
+    ],
     "Stop": [
       {
         "hooks": [
           {
             "type": "command",
-            "command": "\"${CLAUDE_PLUGIN_ROOT}\"/hooks/scripts/context-sync-check.sh stop"
+            "command": "\"${CLAUDE_PLUGIN_ROOT}\"/hooks/scripts/sync-check.sh stop"
           }
         ]
       }

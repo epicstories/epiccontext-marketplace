@@ -1,8 +1,0 @@
-{
-  "mcpServers": {
-    "epiccontext": {
-      "type": "http",
-      "url": "https://www.epiccontext.com/api/mcp"
-    }
-  }
-}

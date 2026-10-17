@@ -1,11 +1,12 @@
 #!/usr/bin/env bash
-# Shared by the Epic Context plugin hooks. Never fails a session: any
-# missing piece (no project, no key, no network) means "stay quiet".
+# Shared by the Epic Context plugin hooks. They need no key and fetch
+# nothing: the agent reads Epic Context through the MCP connector the user
+# signed in to, and the hooks make sure it does. Never fails a session.
 #
-# The project and key come from the plugin's settings (project_id, api_key).
-# A repo that already carries an .epicontext file works too.
+# A repo is bound to a project by an `.epicontext` file with the project id
+# (no secrets — it can be committed). Without one the hooks stay quiet, so a
+# plugin installed for the whole machine only acts in Epic Context repos.
 
-EC_BASE="${EPICCONTEXT_URL:-https://www.epiccontext.com}"
 EC_DIR="${CLAUDE_PROJECT_DIR:-$PWD}"
 EC_CONFIG="$EC_DIR/.epicontext"
 
@@ -15,11 +16,16 @@ ec_field() {
   sed -n "s/.*\"$1\"[[:space:]]*:[[:space:]]*\"\([^\"]*\)\".*/\1/p" "$EC_CONFIG" | head -n1
 }
 
-EC_PROJECT="${CLAUDE_PLUGIN_OPTION_PROJECT_ID:-$(ec_field id)}"
-EC_KEY="${CLAUDE_PLUGIN_OPTION_API_KEY:-$(ec_field apiKey)}"
+EC_PROJECT="$(ec_field id)"
+EC_PROJECT_NAME="$(ec_field name)"
 
-ec_ready() {
-  [ -n "$EC_PROJECT" ] && [ -n "$EC_KEY" ] && command -v curl >/dev/null 2>&1
+ec_bound() {
+  [ -n "$EC_PROJECT" ]
+}
+
+# A per-session marker file.
+ec_marker() {
+  printf '%s/ec-%s-%s' "${TMPDIR:-/tmp}" "$1" "$(printf '%s' "${2:-default}" | tr -c 'A-Za-z0-9_-' '_')"
 }
 
 # JSON-encode stdin as a string literal, with whatever runtime is there.

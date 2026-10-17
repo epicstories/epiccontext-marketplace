@@ -1,12 +1,13 @@
 #!/usr/bin/env bash
-# PreToolUse on Edit/Write: before the first change to a UI file in a
-# session, fetch the briefing for that component or page and put it — and
-# its briefing_id — in front of the agent. Hooks speed things up; the
-# server's write gate is what enforces (bouwplan principle 2).
+# PreToolUse on Edit/Write: in a repo bound to Epic Context, the first edit
+# to a UI file waits until the session has fetched a briefing (get_briefing
+# over the MCP connector). Held once: if the agent tries again without one
+# — the connector may not be there — the edit goes through, so a session
+# can never be trapped. The server's write gate enforces graph writes.
 set -u
 EC_INPUT="$(cat 2>/dev/null || true)"
 . "$(dirname "$0")/_common.sh"
-ec_ready || exit 0
+ec_bound || exit 0
 
 file="$(ec_input_field file_path)"
 [ -n "$file" ] || exit 0
@@ -16,6 +17,14 @@ case "$file" in
 esac
 
 session="$(ec_input_field session_id)"
+[ -f "$(ec_marker briefed "$session")" ] && exit 0
+
+held="$(ec_marker held "$session")"
+if [ -f "$held" ]; then
+  exit 0
+fi
+touch "$held" 2>/dev/null || true
+
 base="$(basename "$file")"
 target="${base%.*}"
 case "$file" in
@@ -23,17 +32,6 @@ case "$file" in
   *) task_type="ui-component" ;;
 esac
 
-# Once per session and target: a briefing per keystroke is noise.
-marker="${TMPDIR:-/tmp}/ec-briefed-${session:-default}-$(printf '%s' "$task_type-$target" | tr -c 'A-Za-z0-9_-' '_')"
-[ -f "$marker" ] && exit 0
-
-payload="{\"task_type\":\"$task_type\",\"target\":\"$target\",\"format\":\"text\",\"budget\":6000}"
-briefing="$(curl -sf --max-time 8 -X POST \
-  -H "Authorization: Bearer $EC_KEY" -H "Content-Type: application/json" \
-  -d "$payload" "$EC_BASE/api/v1/projects/$EC_PROJECT/v3/briefing" 2>/dev/null)" || exit 0
-[ -n "$briefing" ] || exit 0
-touch "$marker" 2>/dev/null || true
-
-context="$(printf 'Epic Context briefing for %s (%s) — read it before this edit, and pass the briefing_id below when you write context:\n\n%s' "$target" "$task_type" "$briefing" | head -c 20000 | ec_json_string)" || exit 0
-printf '{"hookSpecificOutput":{"hookEventName":"PreToolUse","additionalContext":%s}}\n' "$context"
+reason="$(printf 'Epic Context: read before you change UI. Call get_briefing(task_type: "%s", target: "%s", project_id: "%s") through the Epic Context MCP connector, follow it, then make this edit again and pass its briefing_id when you write context. If the Epic Context tools are not available in this session, say so to the user and retry the edit; it will go through.' "$task_type" "$target" "$EC_PROJECT" | ec_json_string)" || exit 0
+printf '{"hookSpecificOutput":{"hookEventName":"PreToolUse","permissionDecision":"deny","permissionDecisionReason":%s}}\n' "$reason"
 exit 0

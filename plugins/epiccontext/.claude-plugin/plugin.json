@@ -1,8 +1,8 @@
 {
   "name": "epiccontext",
   "displayName": "Epic Context",
-  "version": "0.1.1",
-  "description": "Epic Context in every session: the project's context over MCP, the skills that say how to work with it, and hooks that fetch a briefing before UI work.",
+  "version": "0.1.2",
+  "description": "Epic Context in every session: the skills that say how to work with your product context, and hooks that make the agent read it — through your Epic Context connector — before it changes UI.",
   "author": {
     "name": "Epic Stories BV",
     "url": "https://www.epiccontext.com"
@@ -17,21 +17,5 @@
   ],
   "metadata": {
     "library_hash": "b2eeac145ae3fc82"
-  },
-  "userConfig": {
-    "project_id": {
-      "type": "string",
-      "title": "Epic Context project id",
-      "description": "The project this repo works on (Project settings → Connect AI tools shows it). The hooks use it to put the project's anchor, orientation and briefings in front of the agent.",
-      "required": true,
-      "sensitive": false
-    },
-    "api_key": {
-      "type": "string",
-      "title": "Epic Context API key",
-      "description": "A read key for that project, used only by the hooks. The MCP connection itself signs in with your account.",
-      "required": true,
-      "sensitive": true
-    }
   }
 }

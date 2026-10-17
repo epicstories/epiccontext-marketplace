@@ -1,30 +1,19 @@
 #!/usr/bin/env bash
-# SessionStart: put the anchor and a short orientation in front of the agent
-# — which project, its stack, the five rules, its state — so the first
-# thing it knows is where the context lives. Both come from the server;
-# nothing is written into the repo.
+# SessionStart: in a repo bound to an Epic Context project, tell the agent
+# which project this is and what it must do first — through the Epic Context
+# MCP connector, which carries the user's own sign-in. Nothing is fetched here.
 set -u
 . "$(dirname "$0")/_common.sh"
-if ! ec_ready; then
-  # Installed but not told which project: say so once, instead of staying silent.
-  if [ -z "$EC_PROJECT" ] || [ -z "$EC_KEY" ]; then
-    printf 'Epic Context plugin: no project set for this session, so no anchor or briefing was loaded. Set the plugin options project_id and api_key (Project settings → Connect AI tools in Epic Context shows both), or add an .epicontext file to the repo. The Epic Context MCP tools still work once you sign in (/mcp).\n'
-  fi
-  exit 0
-fi
+ec_bound || exit 0
 
-anchor="$(curl -sf --max-time 6 \
-  -H "Authorization: Bearer $EC_KEY" \
-  "$EC_BASE/api/v1/projects/$EC_PROJECT/anchor" 2>/dev/null)" || anchor=""
+name="${EC_PROJECT_NAME:-this project}"
+cat <<MSG
+This repo works with Epic Context: project ${name} (id ${EC_PROJECT}). Its context — brand, users, product, design system, decisions — lives there, not in this repo.
 
-orientation="$(curl -sf --max-time 6 \
-  -H "Authorization: Bearer $EC_KEY" \
-  "$EC_BASE/api/v1/projects/$EC_PROJECT/v3/orientation?format=text" 2>/dev/null)" || orientation=""
+1. First call get_orientation with project_id ${EC_PROJECT} through the Epic Context MCP connector.
+2. Before UI, strategy or architecture work: get_briefing(task_type, target, project_id ${EC_PROJECT}). Pass its briefing_id with every create_block / update_block. Edits to UI files are held until a briefing was fetched in this session.
+3. Write decisions, rules and learnings back to Epic Context with a reason (save_rule / log_learning), never to a local memory file.
 
-[ -n "$anchor$orientation" ] || exit 0
-{
-  [ -n "$anchor" ] && printf '%s\n\n' "$anchor"
-  [ -n "$orientation" ] && printf '%s\n\n' "$orientation"
-  printf 'Before changing UI, strategy or architecture: call get_briefing(task_type, target) and pass its briefing_id when you write.\n'
-} | head -c 9000
+If the Epic Context tools are not available, tell the user to connect the Epic Context connector (Settings → Connectors) and sign in.
+MSG
 exit 0
