@@ -1,0 +1,35 @@
+{
+  "name": "epiccontext",
+  "displayName": "Epic Context",
+  "version": "0.1.0",
+  "description": "Epic Context in every session: the project's context over MCP, the skills that say how to work with it, and hooks that fetch a briefing before UI work.",
+  "author": {
+    "name": "Epic Stories BV",
+    "url": "https://www.epiccontext.com"
+  },
+  "homepage": "https://www.epiccontext.com",
+  "license": "UNLICENSED",
+  "keywords": [
+    "context",
+    "product",
+    "design-system",
+    "mcp"
+  ],
+  "metadata": {
+    "library_hash": "b2eeac145ae3fc82"
+  },
+  "userConfig": {
+    "project_id": {
+      "type": "string",
+      "title": "Epic Context project id",
+      "description": "The project this repo works on (Project settings → Connect AI tools shows it). The hooks use it to put the project's anchor, orientation and briefings in front of the agent.",
+      "sensitive": false
+    },
+    "api_key": {
+      "type": "string",
+      "title": "Epic Context API key",
+      "description": "A read key for that project, used only by the hooks. The MCP connection itself signs in with your account.",
+      "sensitive": true
+    }
+  }
+}

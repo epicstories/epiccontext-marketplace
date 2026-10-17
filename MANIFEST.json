@@ -1,0 +1,235 @@
+{
+  "version": "0.1.0",
+  "mcp_url": "https://www.epiccontext.com/api/mcp",
+  "library_hash": "b2eeac145ae3fc82",
+  "skills": [
+    {
+      "name": "epicontext-alignment",
+      "version": "1.0.0",
+      "contenthash": "bfb250c495b5ffa6",
+      "requires": []
+    },
+    {
+      "name": "epicontext-analysis",
+      "version": "1.0.0",
+      "contenthash": "d1f5624be219206d",
+      "requires": []
+    },
+    {
+      "name": "epicontext-backend",
+      "version": "1.0.0",
+      "contenthash": "5f380a2a0cfd3f82",
+      "requires": [
+        "tech_stack",
+        "architecture_diagram",
+        "data_model",
+        "api_spec",
+        "decision"
+      ]
+    },
+    {
+      "name": "epicontext-boards",
+      "version": "1.0.0",
+      "contenthash": "cc362b3e5be97fef",
+      "requires": []
+    },
+    {
+      "name": "epicontext-brand",
+      "version": "1.0.0",
+      "contenthash": "14c1ddaf81ae9b73",
+      "requires": [
+        "brand_positioning",
+        "messaging_framework",
+        "tone_of_voice",
+        "vision"
+      ]
+    },
+    {
+      "name": "epicontext-build",
+      "version": "1.0.0",
+      "contenthash": "45f17db83e784563",
+      "requires": [
+        "api_endpoint",
+        "api_spec",
+        "architecture_diagram",
+        "brand_moodboard",
+        "brand_visual_identity",
+        "budget",
+        "component_spec",
+        "constraint",
+        "data_model",
+        "data_schema",
+        "decision",
+        "dev_setup",
+        "figma_embed",
+        "integration",
+        "legal_document",
+        "running_costs",
+        "storybook_link",
+        "tech_stack",
+        "testing_strategy"
+      ]
+    },
+    {
+      "name": "epicontext-business-strategy",
+      "version": "1.0.0",
+      "contenthash": "bbf20048336ff41b",
+      "requires": [
+        "business_case",
+        "business_model_canvas",
+        "obeya_board",
+        "ogsm",
+        "porters_five_forces",
+        "product_strategy_canvas",
+        "roadmap",
+        "strategic_group_map",
+        "swot_analysis"
+      ]
+    },
+    {
+      "name": "epicontext-connections",
+      "version": "1.0.0",
+      "contenthash": "4bbaa68d93df8544",
+      "requires": []
+    },
+    {
+      "name": "epicontext-constitution",
+      "version": "1.0.0",
+      "contenthash": "b79916b56a822b06",
+      "requires": [
+        "glossary",
+        "section_guide"
+      ]
+    },
+    {
+      "name": "epicontext-core",
+      "version": "1.0.0",
+      "contenthash": "6413ed27a084786e",
+      "requires": []
+    },
+    {
+      "name": "epicontext-design",
+      "version": "1.0.0",
+      "contenthash": "8e9083b2fc3aa044",
+      "requires": [
+        "component_spec",
+        "brand_visual_identity",
+        "tone_of_voice",
+        "persona"
+      ]
+    },
+    {
+      "name": "epicontext-development",
+      "version": "1.0.0",
+      "contenthash": "1beff63e0a2b9946",
+      "requires": [
+        "feature",
+        "user_story",
+        "task"
+      ]
+    },
+    {
+      "name": "epicontext-fill",
+      "version": "1.0.0",
+      "contenthash": "8e3711bc97479897",
+      "requires": []
+    },
+    {
+      "name": "epicontext-finance",
+      "version": "1.0.0",
+      "contenthash": "9ca86b9e746190a3",
+      "requires": [
+        "running_costs",
+        "budget"
+      ]
+    },
+    {
+      "name": "epicontext-framework-selection",
+      "version": "1.0.0",
+      "contenthash": "2c392f406b7bb01b",
+      "requires": [
+        "tech_stack",
+        "decision"
+      ]
+    },
+    {
+      "name": "epicontext-frontend",
+      "version": "1.0.0",
+      "contenthash": "d1c1646979478267",
+      "requires": [
+        "tech_stack",
+        "component_spec",
+        "content_page",
+        "tone_of_voice"
+      ]
+    },
+    {
+      "name": "epicontext-kickoff",
+      "version": "1.0.0",
+      "contenthash": "25135b9f9a879257",
+      "requires": []
+    },
+    {
+      "name": "epicontext-marketing",
+      "version": "1.0.0",
+      "contenthash": "a03f110da5f22453",
+      "requires": [
+        "campaign",
+        "channel",
+        "content_piece",
+        "marketing_strategy"
+      ]
+    },
+    {
+      "name": "epicontext-performance",
+      "version": "1.0.0",
+      "contenthash": "50e0253cdc17a250",
+      "requires": [
+        "analytics_event",
+        "feedback",
+        "insight",
+        "kpi",
+        "metric",
+        "north_star"
+      ]
+    },
+    {
+      "name": "epicontext-product",
+      "version": "1.0.0",
+      "contenthash": "7311f22c5b8e149b",
+      "requires": [
+        "content_page",
+        "feature",
+        "feature_market_analysis",
+        "glossary",
+        "ia_tree",
+        "product_overview",
+        "taxonomy"
+      ]
+    },
+    {
+      "name": "epicontext-search-optimization",
+      "version": "1.0.0",
+      "contenthash": "416faffe270ddec9",
+      "requires": [
+        "content_page",
+        "marketing_strategy",
+        "kpi"
+      ]
+    },
+    {
+      "name": "epicontext-users",
+      "version": "1.0.0",
+      "contenthash": "82553b7e77d3a273",
+      "requires": [
+        "competitor",
+        "customer_insight",
+        "journey_map",
+        "jtbd",
+        "persona",
+        "research_data",
+        "user_research"
+      ]
+    }
+  ]
+}
