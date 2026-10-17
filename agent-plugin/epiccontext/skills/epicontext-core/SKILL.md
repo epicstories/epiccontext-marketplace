@@ -9,7 +9,7 @@ description: >
 metadata:
   epic.requires: ""
   epic.version: "1.0.0"
-  epic.contenthash: "3b641cdb63b670e0"
+  epic.contenthash: "e4097d38a72185c9"
 ---
 
 # EpicContext — Core Rules
@@ -113,8 +113,8 @@ which is enforced, rather than behind a convention, which is not.
 rejected at the boundary with `validation_issues` — fix and retry rather
 than working around it.
 
-**Every write result carries a `url`** — the block's page in the
-Context Book. Give it to the user.
+**Every write result carries a `url`** — the book page. Open it in your
+browser pane beside the chat, like an artifact; no browser → give the url.
 
 ### Step 4 — CONNECT (links are the brain)
 

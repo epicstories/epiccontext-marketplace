@@ -13,6 +13,7 @@ This repo works with Epic Context: project ${name} (id ${EC_PROJECT}). Its conte
 1. First call get_orientation with project_id ${EC_PROJECT} through the Epic Context MCP connector.
 2. Before UI, strategy or architecture work: get_briefing(task_type, target, project_id ${EC_PROJECT}). Pass its briefing_id with every create_block / update_block. Edits to UI files are held until a briefing was fetched in this session.
 3. Write decisions, rules and learnings back to Epic Context with a reason (save_rule / log_learning), never to a local memory file.
+4. Every write returns a url. If you can drive a browser (a built-in browser pane, Claude in Chrome), open that url there so the user reads the document beside the chat, like an artifact; otherwise give them the url.
 
 If the Epic Context tools are not available, tell the user to connect the Epic Context connector (Settings → Connectors) and sign in.
 MSG
