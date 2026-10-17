@@ -11,7 +11,7 @@ allowed-tools: Read, Grep, Glob
 metadata:
   epic.requires: ""
   epic.version: "1.0.0"
-  epic.contenthash: "8e3711bc97479897"
+  epic.contenthash: "c25179a01027f4bd"
 ---
 
 # EpicContext — The Proactive Context Pass
@@ -58,6 +58,17 @@ Read the whole graph and bucket every node:
 
 - `get_v3_overview` — maturity counts per group (where's the thin layer?).
 - `list_v3_entities` — every block with `maturity`, `origin`, and `body`.
+- `get_org_context` — what the project inherits from its organisation's
+  shared context (brand, design system, shared personas, glossary),
+  marked `[org]`.
+
+**Inherited is not empty.** An entity the organisation provides is
+covered here: skip it. Never fill a project stub for an entity the
+organisation provides — that writes the organisation's context a second
+time, and the copy drifts. Where this project really differs, use
+`override_block` on the inherited block, only the fields that differ,
+with a reason. Where the organisation's own block is a stub, fill it in
+the shared context (or name it as a gap), not in the project.
 
 A node needs work if ANY of these is true:
 - **empty** — no body, or body is whitespace.
@@ -104,7 +115,7 @@ inventing**:
 - **Draft hypotheses, labelled as such.** Persona pains, JTBDs, and the
   product bet that you can't verify online are *assumptions* — write them,
   but mark them clearly ("Hypothesis — validate via interviews") and keep
-  maturity at `stub` or `drafted` (with the hypothesis label in the
+  maturity at `stub` or `assumed` (with the hypothesis label in the
   body), never `validated`.
 - **Write research tasks for the rest.** What can't be answered from the
   web or reasoning becomes a `research` entity describing the study to run
@@ -130,11 +141,11 @@ draft, not a sentence. The bar per shape (see `epicontext-core` →
   real cards.
 
 **Maturity follows evidence.** Content derived from shipping code or real
-research is `drafted` (or `validated` if proven in production) — set the
+research is `assumed` (or `validated` if proven in production) — set the
 `maturity` param on the write, or omit it and a stub that gains real
-content becomes `drafted` automatically; the write itself marks the block
+content becomes `assumed` automatically; the write itself marks the block
 `origin: specialized`. Never leave it at `stub` once you've filled it
-from evidence. `stub` is the floor; `drafted` is the target.
+from evidence. `stub` is the floor; `assumed` is the target.
 
 ### 4. Wire every node (links are the brain)
 
@@ -150,7 +161,7 @@ Write all the changes (`update_block` / `create_block`, each with a
 workflow", "from the interview notes the user pasted"), then summarise in
 ONE message:
 
-- **Filled** — N nodes drafted from evidence, grouped by group, each one
+- **Filled** — N nodes written from evidence, grouped by group, each one
   line. ("Build: tech_stack ← package.json; architecture_diagram ← app/
   + route handlers; data_model ← migrations.")
 - **Wired** — connections added.
@@ -185,4 +196,6 @@ because you re-survey, not because someone remembers to ask.
   A node is created filled, or not yet.
 - **Twenty separate "I updated X" messages.** One sweep, one summary.
 - **Inventing facts to avoid a gap.** Flag the gap; don't fabricate.
+- **Filling a project stub the organisation already answers.** Skip the
+  inherited entity; override only what really differs, with a reason.
 - **Leaving maturity at `stub` after filling from evidence.** Promote it.

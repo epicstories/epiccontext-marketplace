@@ -9,15 +9,15 @@ description: >
 metadata:
   epic.requires: ""
   epic.version: "1.0.0"
-  epic.contenthash: "6413ed27a084786e"
+  epic.contenthash: "3b641cdb63b670e0"
 ---
 
 # EpicContext — Core Rules
 
 EpicContext is the single source of truth for everything a digital
 product needs alongside its code. The graph (34 canonical entities
-across 7 groups: **Brand · Strategy · Users · Product · Build ·
-Marketing · Performance**) holds what the product is for, who it's
+across 8 groups: **Brand · Strategy · Users · Product · Design ·
+Build · Marketing · Performance**) holds what the product is for, who it's
 for, how it works, how it grows, and how it's doing. The codebase
 implements that intent.
 
@@ -47,9 +47,9 @@ state, what changed recently.
 
 - The `.epicontext` file at repo root carries the binding (project id,
   slug, URL, MCP API key).
-- A SessionStart banner or UserPromptSubmit hook may surface this for
-  you in the conversation. If you don't see it, call `get_orientation`
-  (or `list_projects` + `get_v3_overview` as a fallback) yourself.
+- A SessionStart banner or UserPromptSubmit hook may surface this. If
+  not, call `get_orientation`: it ends with the **next step** for the project's
+  state (shared context, scaffold, kickoff or `get_briefing`). Follow it.
 - **On your first response, name the binding to the user.** Layer 1
   visibility — see "How you talk to the user" below.
 
@@ -66,7 +66,7 @@ get_briefing(task_type: "ui-component", target: "Table component", task: "add ro
 ```
 
 Task types: `ui-component`, `ui-page`, `content`, `strategy`,
-`research`, `build-backend`, `general`. Keep the `briefing_id` it
+`research`, `build-backend`, `org-setup`, `general`. Keep the `briefing_id` it
 returns. A block named in your task is found by name or alias ("Table
 component" finds Table). For the whole picture, `get_book`. A required
 slot reported missing means the graph does not know — say so, never fill
@@ -208,9 +208,9 @@ for this — I'd add a research block first") rather than asserting from
 training. Cite as `key@version`, name an assumed block as an assumption,
 and run `check_citations` on an answer before you give it.
 
-**Organisation blocks.** Blocks marked `[org]` belong to the organisation
-and every project reads them (`get_org_context`). Never copy or edit one
-here: differ per field with `override_block` and a reason.
+**Where things live.** Brand, design system, shared personas and glossary live in the organisation's
+shared context; every project reads them as its own, marked `[org]` (`get_org_context`). Never copy or edit
+one here: differ per field with `override_block` and a reason; a block that is really the organisation's goes there with `move_block_to_org`.
 
 ## How you talk to the user
 

@@ -1,17 +1,16 @@
 ---
 name: epicontext-kickoff
 description: >
-  Use the moment a project is freshly scaffolded (every entity a stub,
-  no real content) and the user asks "what do I do now?", "where do I
-  start?", "I just signed up" or "I scaffolded, now what?". The
-  first-hour script: make 3 anchor blocks real today (persona, bet,
-  first feature) in a sparring-partner conversation, then hand off to
-  the entity skills or epicontext-fill.
+  Use the moment a project is freshly scaffolded (every entity a stub)
+  or the organisation's shared context is empty, and the user asks "what
+  do I do now?", "where do I start?" or "I just signed up". The first-hour
+  script: the organisation's brand, personas and glossary first, then 3
+  project anchors (persona, bet, first feature), then hand off.
 allowed-tools: Read, Grep, Glob
 metadata:
   epic.requires: ""
   epic.version: "1.0.0"
-  epic.contenthash: "25135b9f9a879257"
+  epic.contenthash: "7a2a5e59f02499f0"
 ---
 
 # Epic Context — Kickoff (the first hour)
@@ -36,6 +35,8 @@ else becomes the next sprint's work.
 - A returning user who's been away long enough that the graph is
   effectively cold to them again
 - The user explicitly asks "kickoff" / "orient me" / "walk me through"
+- `get_orientation` names the next step "create the shared context" or
+  "fill the organisation's brand, personas, glossary and design system"
 
 If the user asks for the bigger sweep — fill the whole graph, populate
 everything from the repo — hand off to `epicontext-fill` instead.
@@ -49,6 +50,31 @@ the kickoff's only success criterion. Everything else is the next
 work; the next-work list is itself a deliverable.
 
 ## The first-hour script
+
+### Step 0 — The organisation first (when its shared context is empty)
+
+Brand, design system, shared personas and the glossary belong to the
+**organisation**, not to one project: written once in its shared context,
+every project of the organisation reads them as its own (marked `[org]`).
+Writing them into a project first means writing them again for the next.
+
+Call `get_org_context` before anything else:
+
+- **No shared context yet** → `ensure_org_project` creates it.
+- **Shared context empty** (nothing past `stub`) → fill it there first,
+  with `get_briefing("org-setup")` for the slots: vision, positioning,
+  tone of voice, visual identity / design system, shared personas,
+  glossary. Same sparring-partner rules as below — what the user says,
+  marked `assumed` until evidence backs it.
+- **A project block that is really the organisation's** (a brand voice,
+  a colour system, a persona every project shares) → `move_block_to_org`,
+  with a reason, instead of copying it.
+- **Shared context written** → skip to Step 1; the project trio builds on it.
+
+Detail, questions and the order to fill in:
+`references/organisation-first.md`. Keep this step short — the brand
+workshop is `epicontext-brand`'s; the kickoff only makes the shared
+anchors real enough that the project has something to inherit.
 
 ### Step 1 — Open with what the project is FOR (5 minutes)
 
@@ -70,6 +96,13 @@ The persona is the spine. Every other group points at it. Get it
 right today and the rest of the
 graph fills itself faster.
 
+**Start from what the organisation shares.** Read `get_org_context`
+first. If it holds a persona that fits, don't invent a new one: extend
+it for this project with `override_block` (only the fields that differ —
+this project's context, goal, frustration — and a reason saying why).
+Write a project persona of its own only when it is a genuinely different
+person; then say so in the reason.
+
 > *"Tell me about one specific person who'd use this. Not 'product
 > teams' — a named person, or someone you could picture. Their role,
 > their day, their friction. If you have a verbatim quote from a
@@ -78,7 +111,7 @@ graph fills itself faster.
 If the user has interview/conversation material, hand off to
 `references/methodologies/research-synthesis.md` under epicontext-users. Otherwise, draft the
 persona block live — but mark every claim as `hypothesis` until
-research backs it.
+research backs it, and write the block at `assumed`.
 
 Quality bar before declaring this Block #1: persona has a name (or a
 "name TBD"), a role, a day-in-the-life paragraph, a goal, and a
@@ -129,11 +162,13 @@ smallest viable scope named.
 ### Step 5 — Write the three (5 minutes)
 
 Now (and only now) write the three blocks — `update_block` on the
-scaffold stubs, `maturity: drafted`, each with a `reason`:
+scaffold stubs, `maturity: assumed`, each with a `reason`:
 
-1. `persona/primary-persona` — drafted body from Step 2
-2. `product_strategy_canvas/product-strategy` — drafted body from Step 3
-3. `feature/primary-feature` — drafted body from Step 4
+1. The persona from Step 2 — an `override_block` of the organisation's
+   persona, or `update_block` on `persona/primary-persona` when it is
+   the project's own
+2. `product_strategy_canvas/product-strategy` — body from Step 3
+3. `feature/primary-feature` — body from Step 4
 
 Each cites the others through its `_ref` fields (the scaffold already
 pre-wires most of these; check and fill any gap).
@@ -149,7 +184,8 @@ Confirm with the user before writing:
 Close the kickoff with the next 5 blocks to make real, ranked by
 "unlocks the most other blocks." Typical order:
 
-1. `vision` — anchors strategy + brand
+1. `vision` — anchors strategy + brand (skip when the organisation's
+   shared context provides it; override only what differs here)
 2. `messaging` — anchors marketing + content
 3. `ogsm` — anchors performance
 4. `tech_stack` — anchors build
@@ -159,13 +195,17 @@ Close the kickoff with the next 5 blocks to make real, ranked by
 
 > *"These are the next 5 most-leveraged blocks. Want to do one more
 > today, save the rest for tomorrow, or run `epicontext-fill` to
-> write drafted bodies for all of them from the repo + the three
+> write `assumed` bodies for all of them from the repo + the three
 > blocks we just made real?"*
 
 ## Quality bar (the kickoff is done when ALL pass)
 
+- ✓ The organisation's shared context holds at least its vision,
+  positioning, tone of voice and one persona (or the user chose to
+  skip it, and said why).
 - ✓ Three blocks (persona / strategy / feature) written at
-  `drafted`, each citing the others.
+  `assumed`, each citing the others — the persona extending the
+  organisation's where one fits.
 - ✓ User can recite the bet in one sentence without reading it.
 - ✓ A next-work list exists, ranked, with the user's chosen next
   action named (one more block / fill pass / stop and rest).
@@ -175,6 +215,8 @@ through the relevant step again.
 
 ## What this produces in the graph
 
+- **The organisation's anchors** (Step 0), written in its shared
+  context when they were missing — never copied into the project.
 - **3 block writes** at the end of the script — persona, strategy,
   feature — each cross-linking via its `_ref` fields.
 - **`reason` must cite:** at minimum the existing `vision` and
@@ -192,6 +234,11 @@ through the relevant step again.
   it's not in scope. The kickoff doesn't invent content — it
   facilitates content the user has.
 - **Skipping the persona step.** Without it the rest is unanchored.
+- **Writing the brand or a shared persona into the project.** It
+  belongs to the organisation; the next project would have to write it
+  again. Fill it in the shared context, or move it there.
+- **Inventing a project persona when the organisation has one.**
+  Extend it with `override_block` and a reason.
 - **Skipping the verbatim-quote pull.** If the user has interview
   material and we don't use it, we're making the persona up.
 - **Treating this as a workshop you finish in one go.** If the user

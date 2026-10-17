@@ -1,7 +1,7 @@
 {
-  "version": "0.1.3",
+  "version": "0.1.4",
   "mcp_url": "https://www.epiccontext.com/api/mcp",
-  "library_hash": "b2eeac145ae3fc82",
+  "library_hash": "bccc3ac3296ef12e",
   "skills": [
     {
       "name": "epicontext-alignment",
@@ -12,7 +12,7 @@
     {
       "name": "epicontext-analysis",
       "version": "1.0.0",
-      "contenthash": "d1f5624be219206d",
+      "contenthash": "5b26ed8dea3c10de",
       "requires": []
     },
     {
@@ -52,20 +52,15 @@
         "api_endpoint",
         "api_spec",
         "architecture_diagram",
-        "brand_moodboard",
-        "brand_visual_identity",
         "budget",
-        "component_spec",
         "constraint",
         "data_model",
         "data_schema",
         "decision",
         "dev_setup",
-        "figma_embed",
         "integration",
         "legal_document",
         "running_costs",
-        "storybook_link",
         "tech_stack",
         "testing_strategy"
       ]
@@ -104,7 +99,7 @@
     {
       "name": "epicontext-core",
       "version": "1.0.0",
-      "contenthash": "6413ed27a084786e",
+      "contenthash": "3b641cdb63b670e0",
       "requires": []
     },
     {
@@ -131,7 +126,7 @@
     {
       "name": "epicontext-fill",
       "version": "1.0.0",
-      "contenthash": "8e3711bc97479897",
+      "contenthash": "c25179a01027f4bd",
       "requires": []
     },
     {
@@ -166,7 +161,7 @@
     {
       "name": "epicontext-kickoff",
       "version": "1.0.0",
-      "contenthash": "25135b9f9a879257",
+      "contenthash": "7a2a5e59f02499f0",
       "requires": []
     },
     {

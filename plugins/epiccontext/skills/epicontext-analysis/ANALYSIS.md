@@ -34,7 +34,7 @@ What did you see? Where? When? How big? Avoid mood ("things feel off"). Quote nu
 
 ### 2. Traverse the linked context
 
-Pull every connected entity across all seven groups. The graph traversal is the work — don't analyze in isolation.
+Pull every connected entity across all eight groups. The graph traversal is the work — don't analyze in isolation.
 
 For a Users-group signal, traverse outward:
 

@@ -11,7 +11,7 @@ allowed-tools: Read, Grep, Glob
 metadata:
   epic.requires: ""
   epic.version: "1.0.0"
-  epic.contenthash: "d1f5624be219206d"
+  epic.contenthash: "5b26ed8dea3c10de"
 ---
 
 # Epic Context — Analysis (cross-group reasoning)
@@ -45,8 +45,8 @@ Read [`ANALYSIS.md`](./ANALYSIS.md) for the full five-step pattern
 1. **State the signal precisely** — what did you see, where, when, how
    big? Quote numbers and direct words.
 2. **Traverse the linked context** — pull every connected entity across
-   all seven groups (Brand · Strategy · Users · Product · Build ·
-   Marketing · Performance); the traversal IS the work.
+   all eight groups (Brand · Strategy · Users · Product · Design ·
+   Build · Marketing · Performance); the traversal IS the work.
 3. **Identify tensions** — where does the linked context disagree?
    Tensions are signals; don't smooth over them.
 4. **Classify** — real problem to fix / acceptable trade-off / drift to

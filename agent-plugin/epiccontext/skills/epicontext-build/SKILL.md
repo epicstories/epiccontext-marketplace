@@ -2,7 +2,7 @@
 name: epicontext-build
 description: "Use for the Build group of an Epic Context graph: design system, design tokens, tech stack, architecture, infrastructure, deployment, ADRs / decision records, legal, compliance, privacy, GDPR. Use when populating these from the repo or from decisions, ingesting stack, architecture or compliance material, or auditing documented build context against what is actually deployed."
 metadata:
-  epic.requires: "api_endpoint,api_spec,architecture_diagram,brand_moodboard,brand_visual_identity,budget,component_spec,constraint,data_model,data_schema,decision,dev_setup,figma_embed,integration,legal_document,running_costs,storybook_link,tech_stack,testing_strategy"
+  epic.requires: "api_endpoint,api_spec,architecture_diagram,budget,constraint,data_model,data_schema,decision,dev_setup,integration,legal_document,running_costs,tech_stack,testing_strategy"
   epic.version: "1.0.0"
   epic.contenthash: "45f17db83e784563"
 ---
