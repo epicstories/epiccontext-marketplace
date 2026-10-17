@@ -8,7 +8,7 @@
       "name": "epiccontext",
       "source": "./plugins/epiccontext",
       "description": "Epic Context in every session: the project's context over MCP, the skills that say how to work with it, and hooks that fetch a briefing before UI work.",
-      "version": "0.1.0"
+      "version": "0.1.1"
     }
   ]
 }

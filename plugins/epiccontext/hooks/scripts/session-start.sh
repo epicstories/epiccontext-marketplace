@@ -5,7 +5,13 @@
 # nothing is written into the repo.
 set -u
 . "$(dirname "$0")/_common.sh"
-ec_ready || exit 0
+if ! ec_ready; then
+  # Installed but not told which project: say so once, instead of staying silent.
+  if [ -z "$EC_PROJECT" ] || [ -z "$EC_KEY" ]; then
+    printf 'Epic Context plugin: no project set for this session, so no anchor or briefing was loaded. Set the plugin options project_id and api_key (Project settings → Connect AI tools in Epic Context shows both), or add an .epicontext file to the repo. The Epic Context MCP tools still work once you sign in (/mcp).\n'
+  fi
+  exit 0
+fi
 
 anchor="$(curl -sf --max-time 6 \
   -H "Authorization: Bearer $EC_KEY" \
