@@ -23,9 +23,12 @@ ec_bound() {
   [ -n "$EC_PROJECT" ]
 }
 
-# A per-session marker file.
+# A per-session marker file. No session id, no marker (status 1, nothing
+# printed): a shared fallback name would let one session's briefing release
+# another's hold, or one session's hold catch another.
 ec_marker() {
-  printf '%s/ec-%s-%s' "${TMPDIR:-/tmp}" "$1" "$(printf '%s' "${2:-default}" | tr -c 'A-Za-z0-9_-' '_')"
+  [ -n "${2:-}" ] || return 1
+  printf '%s/ec-%s-%s' "${TMPDIR:-/tmp}" "$1" "$(printf '%s' "$2" | tr -c 'A-Za-z0-9_-' '_')"
 }
 
 # JSON-encode stdin as a string literal, with whatever runtime is there.

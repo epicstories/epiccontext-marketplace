@@ -17,6 +17,9 @@ case "$file" in
 esac
 
 session="$(ec_input_field session_id)"
+# Without a session id there is nothing to remember the hold by, so there
+# is no hold: never trap a session, never share a marker between sessions.
+[ -n "$session" ] || exit 0
 [ -f "$(ec_marker briefed "$session")" ] && exit 0
 
 held="$(ec_marker held "$session")"
