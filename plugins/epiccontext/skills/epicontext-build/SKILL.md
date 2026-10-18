@@ -4,7 +4,7 @@ description: "Use for the Build group of an Epic Context graph: design system, d
 metadata:
   epic.requires: "api_endpoint,api_spec,architecture_diagram,budget,constraint,data_model,data_schema,decision,dev_setup,integration,legal_document,running_costs,tech_stack,testing_strategy"
   epic.version: "1.0.0"
-  epic.contenthash: "45f17db83e784563"
+  epic.contenthash: "1ac3990ceddf138a"
 ---
 
 # Epic Context — Build Group

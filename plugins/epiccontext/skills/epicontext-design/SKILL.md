@@ -1,16 +1,15 @@
 ---
 name: epicontext-design
 description: >
-  Use when designing a screen, component, variant, landing page or flow
-  for an EpicContext-managed project, exploring visual directions, or
-  setting up a design system — or on: /design, design canvas, artboards,
-  mockup, component variant. Seeds the /design canvas with the graph's
-  real tokens, voice and persona, and lands the chosen direction as a
-  component_spec or content_page.
+  Use when designing a screen, component or flow for an EpicContext
+  project, setting up its design system or brandbook (logo, palette,
+  type, assets, examples) — or on: /design, design canvas, brand guide,
+  mockup, component anatomy. Seeds the canvas with the graph's real
+  tokens, voice and persona; lands work as specs, assets and examples.
 metadata:
   epic.requires: "component_spec,brand_visual_identity,tone_of_voice,persona"
   epic.version: "1.0.0"
-  epic.contenthash: "8e9083b2fc3aa044"
+  epic.contenthash: "ca62d8183e468c4c"
 ---
 
 # Epic Context — Design
@@ -24,6 +23,35 @@ components already exist.
 That gap is the whole reason this skill exists. The model was never the
 differentiator; the context is. This skill is the bridge: graph → canvas →
 graph.
+
+## The Design group is a brandbook — five chapters
+
+Every project's Design group has the same five chapters, written or
+not. Fill them; the book draws each one as pictures, not text.
+
+| Chapter | Write | As |
+|---|---|---|
+| Foundations | Colours with roles, type, space/grid, shape, motion, layering | the `brand_visual_identity` body: `~~~palette`, `~~~type`, `~~~theme` |
+| Brand assets | Logo + colour versions, clear space, min size, don'ts, lock-ups, name spelling, slogan, patterns, icons, illustration and photo style | one `brand_asset` per asset: `~~~gallery` + `~~~dodont` |
+| Components | One spec per part, with **Anatomy & specs** | `component_spec` (see below) |
+| Guidelines | Writing for the UI, accessibility, layout, do's and don'ts | `document` blocks |
+| Applications | Decks, posters, social, e-mail, merch, screens | one `design_application` per example |
+
+- **Theme the Design pages** with `~~~theme` in the visual identity:
+  background, surface, ink, accent, heading/body font, a cover image.
+  Ink must reach 4.5:1 or the pages stay neutral. Never write CSS.
+- **Assets are small, vector first** (SVG ≤ 256 KB, images ≤ 1 MB as
+  examples). Master files stay in Figma or a drive — link `source_url`.
+  It is a rulebook, not a DAM.
+- **Anatomy & specs on every component:** in `anatomy`, per part its
+  `region` (Media / Header / Body / Footer), its purpose
+  (`description`), and the foundations it uses — `typography`, `color`,
+  `padding`, `margin`, `radius` — as tokens, never raw values where a
+  token exists. Add `anatomy_image` (a still) and `x`/`y` per part to
+  number them on the component. This is where Foundations come back in
+  use; it never depends on a live preview measuring itself.
+
+Fence syntax: `epicontext-core` → markdown conventions → Design primitives.
 
 ## The three-step loop
 

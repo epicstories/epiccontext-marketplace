@@ -1,7 +1,7 @@
 {
-  "version": "0.1.6",
+  "version": "0.1.7",
   "mcp_url": "https://www.epiccontext.com/api/mcp",
-  "library_hash": "52abdb9ef0b97725",
+  "library_hash": "3ebfdccafd7040af",
   "skills": [
     {
       "name": "epicontext-alignment",
@@ -47,7 +47,7 @@
     {
       "name": "epicontext-build",
       "version": "1.0.0",
-      "contenthash": "45f17db83e784563",
+      "contenthash": "1ac3990ceddf138a",
       "requires": [
         "api_endpoint",
         "api_spec",
@@ -99,13 +99,13 @@
     {
       "name": "epicontext-core",
       "version": "1.0.0",
-      "contenthash": "e4097d38a72185c9",
+      "contenthash": "e1db03b9fb4a3b0a",
       "requires": []
     },
     {
       "name": "epicontext-design",
       "version": "1.0.0",
-      "contenthash": "8e9083b2fc3aa044",
+      "contenthash": "ca62d8183e468c4c",
       "requires": [
         "component_spec",
         "brand_visual_identity",

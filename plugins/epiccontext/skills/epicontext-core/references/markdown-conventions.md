@@ -37,6 +37,11 @@ under-delivers, even when the prose is good.
 | A hierarchy (IA, taxonomy) | the tree shape | nested bullets |
 | Work in columns (a board) | the kanban shape | H2 per column |
 | Something another block already says well | an embed | `~~~embed` |
+| Brand colours | swatches | `~~~palette` |
+| Typefaces | a specimen | `~~~type` |
+| A logo, pattern, icon set or example of the brand in use | pictures | `~~~gallery` |
+| What to do and not to do with an asset | a do / don't pair | `~~~dodont` |
+| How the project's Design pages should look | the theme | `~~~theme` (visual identity only) |
 | An argument, a decision, a definition | prose | headings + paragraphs |
 
 Two rules govern all of them:
@@ -409,6 +414,69 @@ That is the whole difference between an embed and a paste.
   this*, not repeat the block's name — the frame already carries that.
 - An embedded block that hasn't been written yet says so rather than
   rendering an empty frame.
+
+## Design primitives — show the brand, don't describe it
+
+The Design group is a brandbook as well as a design system. Its pages
+read as pictures: swatches, specimens, the logo on its grounds, crossed-
+out misuses. Five fences draw them. Values are YAML; anything the book
+cannot use (a colour that is not a hex, an image url that is not https
+or a site path) is reported under the figure and left out.
+
+~~~~
+~~~palette
+title: Primary colours
+colors:
+  - { name: Edge Green, hex: "#005555", role: "Primary — text, logo", note: "PMS 3292" }
+  - { name: Edge Lime, hex: "#c8e600", role: "Accents" }
+~~~
+
+~~~type
+fonts_from: google        # load the families from Google Fonts
+fonts:
+  - { role: Headlines, family: Space Grotesk, weights: [500, 700], sample: "your retail media orchestrator" }
+  - { role: Body copy, family: Inter, weights: [400, 600] }
+~~~
+
+~~~gallery
+title: Logo — colour versions
+columns: 3                # 1–4
+ratio: 4/3                # 1/1, 4/3, 16/9, 3/4
+items:
+  - { src: /brand/logo.svg, caption: On beige, background: "#fff7ee" }
+  - { src: /brand/logo-white.svg, caption: On green, background: "#005555" }
+~~~
+
+~~~dodont
+do:
+  - text: Use the approved colour versions
+dont:
+  - { text: Rotate or stretch the logo, src: /brand/logo-rotated.png }
+~~~
+
+~~~theme
+background: "#fff7ee"     # the Design pages' ground
+surface: "#ffffff"        # cards and panels
+ink: "#005555"            # text: must reach 4.5:1 on both
+accent: "#005555"         # buttons, links, focus
+heading_font: Space Grotesk
+body_font: Inter
+fonts: google
+cover: /brand/pattern.svg # the Design cover's image
+~~~
+~~~~
+
+Rules:
+
+- **The theme lives in the visual identity** and dresses only the Design
+  group. Ink below WCAG AA on the background or surface is refused —
+  the pages stay neutral and the figure says why. Never write CSS.
+- **Images are small and yours**: SVG first, PNG/JPG/WebP as examples.
+  The master files (AI, INDD, Figma) stay where they live; link them.
+- One asset per `brand_asset` block, one example per `design_application`.
+  The chapter a block reads under comes from its type; set
+  `chapter: foundations | brand-assets | components | guidelines |
+  applications` in its value to file it elsewhere.
 
 ## Entity overviews — the intro on each group page
 

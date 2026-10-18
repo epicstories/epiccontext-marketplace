@@ -14,6 +14,18 @@ A real design_system block tells a new contributor: *what tokens exist, what com
 > grounded in Material 3, Uber Base, and NS Nessie. Check a project's
 > inventory against it before calling the design_system block drafted.
 
+> **Design is a brandbook too (2026-10-18).** The Design group reads as
+> five chapters — Foundations · Brand assets · Components · Guidelines ·
+> Applications — with no "Design System" level in between, and every
+> project has all five. Logo, patterns, icons and illustration style are
+> `brand_asset` blocks; examples of the brand in use are
+> `design_application` blocks; the visual identity carries the palette,
+> type and the Design pages' theme as `~~~palette`, `~~~type` and
+> `~~~theme`. Each `component_spec` carries **Anatomy & specs**: per part
+> its zone, purpose and the foundations it uses (type, colour, padding,
+> margin, radius as tokens). Fence syntax: `epicontext-core` → markdown
+> conventions → Design primitives; the chapter guide: `epicontext-design`.
+
 ## Why most design_system blocks are too thin
 
 The pattern: a URL pointing at a component catalogue, three sentences naming the component library and CSS framework, end. That tells the reader where the components live but not:
