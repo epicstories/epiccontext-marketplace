@@ -471,10 +471,9 @@ Rules:
 - **The theme lives in the visual identity** and dresses only the Design
   group. Ink below WCAG AA on the background or surface is refused —
   the pages stay neutral and the figure says why. Never write CSS.
-- **Images are small and yours**: SVG first, PNG/JPG/WebP as examples.
-  Put them in with `upload_asset` (SVG as text, images as base64) and
-  use the url it returns. The master files (AI, INDD, Figma) stay where
-  they live; link them.
+- **Images go in with `upload_asset`** (SVG as text, PNG/JPG/WebP/GIF/
+  AVIF as base64); use the url it returns. SVG where you have it — it
+  stays sharp at every size.
 - One asset per `brand_asset` block, one example per `design_application`.
   The chapter a block reads under comes from its type; set
   `chapter: foundations | brand-assets | components | guidelines |

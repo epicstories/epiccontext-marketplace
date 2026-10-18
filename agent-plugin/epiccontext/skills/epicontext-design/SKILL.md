@@ -9,7 +9,7 @@ description: >
 metadata:
   epic.requires: "component_spec,brand_visual_identity,tone_of_voice,persona"
   epic.version: "1.0.0"
-  epic.contenthash: "c29a37943770f8c0"
+  epic.contenthash: "afba2ca482d886ed"
 ---
 
 # Epic Context — Design
@@ -40,10 +40,9 @@ not. Fill them; the book draws each one as pictures, not text.
 - **Theme the Design pages** with `~~~theme` in the visual identity:
   background, surface, ink, accent, heading/body font, a cover image.
   Ink must reach 4.5:1 or the pages stay neutral. Never write CSS.
-- **Assets are small, vector first** (SVG ≤ 256 KB, images ≤ 1 MB as
-  examples), uploaded with `upload_asset` — people use "Add an asset" in
-  the book. Master files stay in Figma or a drive — link `source_url`.
-  It is a rulebook, not a DAM.
+- **Upload the images** with `upload_asset` (people use "Add an asset"
+  in the book) — logos, patterns, icons, photos, examples. SVG where you
+  have it.
 - **Anatomy & specs on every component:** in `anatomy`, per part its
   `region` (Media / Header / Body / Footer), its purpose
   (`description`), and the foundations it uses — `typography`, `color`,

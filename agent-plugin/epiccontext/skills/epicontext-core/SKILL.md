@@ -9,7 +9,7 @@ description: >
 metadata:
   epic.requires: ""
   epic.version: "1.0.0"
-  epic.contenthash: "94a276849a0663fe"
+  epic.contenthash: "cad6b68cb592fac5"
 ---
 
 # EpicContext — Core Rules
