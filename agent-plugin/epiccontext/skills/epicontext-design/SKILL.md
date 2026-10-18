@@ -9,7 +9,7 @@ description: >
 metadata:
   epic.requires: "component_spec,brand_visual_identity,tone_of_voice,persona"
   epic.version: "1.0.0"
-  epic.contenthash: "ca62d8183e468c4c"
+  epic.contenthash: "c29a37943770f8c0"
 ---
 
 # Epic Context — Design
@@ -41,14 +41,16 @@ not. Fill them; the book draws each one as pictures, not text.
   background, surface, ink, accent, heading/body font, a cover image.
   Ink must reach 4.5:1 or the pages stay neutral. Never write CSS.
 - **Assets are small, vector first** (SVG ≤ 256 KB, images ≤ 1 MB as
-  examples). Master files stay in Figma or a drive — link `source_url`.
+  examples), uploaded with `upload_asset` — people use "Add an asset" in
+  the book. Master files stay in Figma or a drive — link `source_url`.
   It is a rulebook, not a DAM.
 - **Anatomy & specs on every component:** in `anatomy`, per part its
   `region` (Media / Header / Body / Footer), its purpose
   (`description`), and the foundations it uses — `typography`, `color`,
   `padding`, `margin`, `radius` — as tokens, never raw values where a
-  token exists. Add `anatomy_image` (a still) and `x`/`y` per part to
-  number them on the component. This is where Foundations come back in
+  token exists. Add `x`/`y` per part (percentages of the live
+  preview) to number them on the real component; `anatomy_image` is
+  only a fallback while no preview is wired. This is where Foundations come back in
   use; it never depends on a live preview measuring itself.
 
 Fence syntax: `epicontext-core` → markdown conventions → Design primitives.

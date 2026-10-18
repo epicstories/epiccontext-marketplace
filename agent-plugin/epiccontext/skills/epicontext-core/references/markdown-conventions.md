@@ -472,7 +472,9 @@ Rules:
   group. Ink below WCAG AA on the background or surface is refused —
   the pages stay neutral and the figure says why. Never write CSS.
 - **Images are small and yours**: SVG first, PNG/JPG/WebP as examples.
-  The master files (AI, INDD, Figma) stay where they live; link them.
+  Put them in with `upload_asset` (SVG as text, images as base64) and
+  use the url it returns. The master files (AI, INDD, Figma) stay where
+  they live; link them.
 - One asset per `brand_asset` block, one example per `design_application`.
   The chapter a block reads under comes from its type; set
   `chapter: foundations | brand-assets | components | guidelines |
