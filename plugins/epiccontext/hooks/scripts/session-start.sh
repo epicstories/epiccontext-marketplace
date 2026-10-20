@@ -15,6 +15,7 @@ This repo works with Epic Context: project ${name} (id ${EC_PROJECT}). Its conte
 3. Write decisions, rules and learnings back to Epic Context with a reason (save_rule / log_learning), never to a local memory file.
 4. Every write returns a url. Open it right away, every time, in your browser pane beside the chat (in Claude desktop: the built-in browser; otherwise Claude in Chrome), so the user sees the changed page like an artifact; without a browser, give them the url.
 5. What the session leaves for a person — an action, a decision, an approval, a setting, a question, an investigation — goes to that person with hand_off (a card for a named member: "Nico", "me"), not into a list in the chat. list_handoffs shows what is already waiting.
+6. Every build has a plan: as soon as you have one, put it on the board with share_plan (key: the branch), and call it again as steps start and finish. Notes worth keeping go to write_note; what someone must know but not do goes to notify. get_orientation lists the organisation's tools and what each is for.
 
 If the Epic Context tools are not available, tell the user to connect the Epic Context connector (Settings → Connectors) and sign in.
 MSG

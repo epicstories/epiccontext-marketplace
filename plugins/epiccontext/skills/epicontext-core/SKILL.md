@@ -9,7 +9,7 @@ description: >
 metadata:
   epic.requires: ""
   epic.version: "1.0.0"
-  epic.contenthash: "cad6b68cb592fac5"
+  epic.contenthash: "3c1becaefc67b14b"
 ---
 
 # EpicContext — Core Rules
@@ -153,7 +153,9 @@ that deliverable is written to the graph:
 
 | You produced | It lands as |
 |---|---|
-| A plan (build plan, research plan, migration plan) | `document` (category: plan) |
+| The plan of the work you are doing (every build has one) | on the board with `share_plan`, kept current as steps finish; a plan others must read also as a `document` (category: plan) |
+| What is left for a person (an action, a decision, a question) | `hand_off` — a card for a named member, never a list in the chat |
+| Notes along the way (a session log, meeting notes) | `write_note` |
 | A review / audit / report | `document` (category: review / report) |
 | A rule the team agreed, a learning | `save_rule` / `log_learning` |
 | A decision, made or recommended | `decision` (ADR form) |
@@ -180,7 +182,7 @@ Rules:
   a code-only change already covered by Step 3) has nothing to land —
   say so explicitly if asked.
 
-Enforced by the Stop hook (see "The hard gates").
+Enforced by the Stop hook (see "The hard gates"). Which tool is for what: `references/the-suite.md`.
 
 ## Readability — a rule, not advice
 
@@ -244,9 +246,7 @@ gates enforce it at the moment a shortcut would otherwise succeed.
 | **Write gate** | server, MCP | a core-block write without a recent `briefing_id` | warns, or refuses where the project enforces it |
 | **Schema gatekeeper** | server, on every write path | every write | rejects invalid values with `validation_issues` |
 | **Locks** | server, per block or passage | every write | refuses *every* caller on a locked block or passage |
-| **Stop hook** | the context-sync hook in the Epic Context plugin for Claude Code | session end | blocks once if product code changed OR a durable deliverable (artifact, plan-mode plan, plan file) was produced without any graph write |
-
-The Stop hook reminds you at most once per session; if nothing needs updating, say so and stop.
+| **Stop hooks** | the Epic Context plugin for Claude Code | session end | block once (each) if product code or a deliverable landed without a graph write, or a plan was not shared / nothing was handed off — if nothing needs updating, say so and stop |
 
 ## The coverage mandates — what must always exist
 

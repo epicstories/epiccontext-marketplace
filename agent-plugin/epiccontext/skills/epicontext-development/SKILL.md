@@ -11,15 +11,17 @@ allowed-tools: Read, Grep, Glob
 metadata:
   epic.requires: "feature,user_story,task"
   epic.version: "1.0.0"
-  epic.contenthash: "1beff63e0a2b9946"
+  epic.contenthash: "5e19958e8e303cfe"
 ---
 
 # Epic Context — Development Workflow
 
 Translate a graph `feature` into a shippable story stack. Operates
 **outside** the canonical 34 entities — `epic`, `user_story`, `task`,
-`kanban_board`, `impact_effort_matrix` are workflow artefacts kept in
-PR descriptions + git, not in the graph.
+`kanban_board`, `impact_effort_matrix` are workflow artefacts. They
+live on the board in Kanban — `share_plan` puts the plan (a card per
+story or task) there and keeps it current, `hand_off` gives a person
+what is theirs — and in PR descriptions + git, not in the graph.
 
 ## When to use vs not
 
@@ -79,4 +81,4 @@ scope); **MECE** (stories don't overlap each other within a feature).
 - UI stories that don't name a `content_page` to mint/update.
 - Roadmap items added without an impact-effort score.
 - Treating `epic` / `user_story` / `task` as graph entities — they're
-  PR/git artefacts.
+  cards on the board (`share_plan`) and PR/git artefacts.
