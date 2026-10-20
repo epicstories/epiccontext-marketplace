@@ -23,6 +23,21 @@ measure — never invented.
 line each on what it is for; `list_tool_actions` gives the same with the
 actions of installed tools.
 
+## Open what you touch, beside the chat
+
+The person follows the work in the suite, not only in the chat. When your
+client has a browser you can drive (Claude desktop's built-in browser,
+Claude in Chrome), open there — in one tab, navigated to each new page:
+
+| When | Open |
+|---|---|
+| You write a block | the `url` the write returns: its page in the book |
+| You share a plan | the `url` share_plan returns: the card on the board |
+| You change a component or a page | its page in the design system or its content page — the UI briefing names it on its first line |
+
+Then say in the chat what changed. Without a browser, give the url. A
+page that asks to sign in: the person signs in there once, never you.
+
 ## Every build has a plan
 
 1. **As soon as you have a plan**, call `share_plan`: a title, the goal,

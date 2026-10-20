@@ -3,7 +3,9 @@
 # (docs/suite/planning-en-meldingen.md §5):
 #   - a plan was made (a todo list, plan mode, or a build of many edits)
 #     but never put on the board with share_plan;
-#   - the graph was written but nothing handed off to people.
+#   - the graph was written but nothing handed off to people;
+#   - the graph was written or a plan shared, and nothing opened beside the
+#     chat (Robert, 2026-10-20).
 # One message for both. Never traps a session: the stop_hook_active guard
 # and a per-session marker mean it blocks at most once; any uncertainty
 # allows.
@@ -33,6 +35,10 @@ if [ "$planned" = 1 ] && ! called 'mcp__[^"]*__share_plan'; then
 fi
 if [ "$graph_write" = 1 ] && ! called 'mcp__[^"]*__(hand_off|create_task|notify)'; then
   ask="${ask:+$ask }Does this session leave anything for a person — an action, a decision, an approval, a setting, a question or an investigation? Then call hand_off with each item for a named member, instead of listing it in your reply."
+fi
+# Wrote to Epic Context, or shared a plan, and opened nothing beside the chat.
+if { [ "$graph_write" = 1 ] || called 'mcp__[^"]*__(share_plan|write_note)'; } && ! called 'mcp__[^"]*(Claude_Browser|claude-in-chrome)__(navigate|browser_batch|preview_start)'; then
+  ask="${ask:+$ask }You wrote to Epic Context but opened nothing beside the chat: open the last page you wrote (or the plan's card) in the browser pane now, so the person sees it."
 fi
 [ -n "$ask" ] || exit 0
 
