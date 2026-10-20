@@ -30,14 +30,17 @@ edits="$(grep -cE '"name"[[:space:]]*:[[:space:]]*"(Edit|Write|MultiEdit|Noteboo
 planned=0; { called '(TodoWrite|TaskCreate|ExitPlanMode)' || [ "${edits:-0}" -ge 10 ] 2>/dev/null; } && planned=1
 
 ask=""
-if [ "$planned" = 1 ] && ! called 'mcp__[^"]*__share_plan'; then
+# A suite verb through call_tool_action (sessions whose tool list predates it) counts too.
+via_action() { grep -qE "\"action\"[[:space:]]*:[[:space:]]*\"$1\"" "$transcript"; }
+
+if [ "$planned" = 1 ] && ! called 'mcp__[^"]*__share_plan' && ! via_action 'share_plan'; then
   ask="This session made a plan (a todo list, plan mode, or a build of many edits) but did not put it on the board. Call share_plan with its steps and their statuses now (key: the branch), so the plan shows in Kanban."
 fi
-if [ "$graph_write" = 1 ] && ! called 'mcp__[^"]*__(hand_off|create_task|notify)'; then
+if [ "$graph_write" = 1 ] && ! called 'mcp__[^"]*__(hand_off|create_task|notify)' && ! via_action '(create_task|notify)'; then
   ask="${ask:+$ask }Does this session leave anything for a person — an action, a decision, an approval, a setting, a question or an investigation? Then call hand_off with each item for a named member, instead of listing it in your reply."
 fi
 # Wrote to Epic Context, or shared a plan, and opened nothing beside the chat.
-if { [ "$graph_write" = 1 ] || called 'mcp__[^"]*__(share_plan|write_note)'; } && ! called 'mcp__[^"]*(Claude_Browser|claude-in-chrome)__(navigate|browser_batch|preview_start)'; then
+if { [ "$graph_write" = 1 ] || called 'mcp__[^"]*__(share_plan|write_note)' || via_action '(share_plan|write_note)'; } && ! called 'mcp__[^"]*(Claude_Browser|claude-in-chrome)__(navigate|browser_batch|preview_start)'; then
   ask="${ask:+$ask }You wrote to Epic Context but opened nothing beside the chat: open the last page you wrote (or the plan's card) in the browser pane now, so the person sees it."
 fi
 [ -n "$ask" ] || exit 0
