@@ -9,7 +9,7 @@ description: >
 metadata:
   epic.requires: ""
   epic.version: "1.0.0"
-  epic.contenthash: "1b43a8f0e4deff31"
+  epic.contenthash: "cc3706c75ce43dd2"
 ---
 
 # EpicContext — Core Rules
@@ -95,11 +95,10 @@ learning goes to `save_rule` / `log_learning`, never to a local memory
 file** — one call, free text, it lands as an assumption every co-worker's
 session can find.
 
-**Always pass a `reason`.** One or two sentences on why you made the
-change. It is recorded on the version snapshot and shown in the
-project's changes feed (`/<org>/<project>/changes`) beside the diff —
-it is what a human reads when deciding whether to keep your edit. A
-change with no reason is a change someone has to reverse-engineer.
+**Always pass a `reason`.** One or two sentences on why you made the change. It is
+recorded on the version snapshot and shown in the project's changes feed
+(`/<org>/<project>/changes`) beside the diff — it is what a human reads when deciding
+whether to keep your edit. A change with no reason is a change someone has to reverse-engineer.
 
 A bulk `ingest_text` run shares one `change_batch_id`, so the whole
 ingest reverts in a single action. (What replaced the old queue's
@@ -125,7 +124,7 @@ Every write must leave the graph more connected, not less.
 - **Required `_ref` fields** — every block type has required outgoing
   edges (feature → product_overview, jtbd → persona, content_page →
   feature[], …). Pass them on `create_block`; the full table lives in
-  `epicontext-connections`. A missing required edge is flagged by
+  `epicontext-context` (connections). A missing required edge is flagged by
   `check_project_health` as an incomplete node.
 - **Recommended cross-links** (non-required) are your judgement —
   fill them when the relationship is real. A new persona should link
@@ -184,7 +183,7 @@ Rules:
   a code-only change already covered by Step 3) has nothing to land —
   say so explicitly if asked.
 
-Enforced by the Stop hook (see "The hard gates"). Which tool is for what: `references/the-suite.md`.
+Enforced by the Stop hook (see "The hard gates"). Which tool is for what: `epicontext-suite`.
 
 ## Readability — a rule, not advice
 
@@ -203,14 +202,13 @@ get_evidence_for(block_key: "primary-feature")
 get_evidence_for(entity: "persona")
 ```
 
-It returns every `research`, `customer_insight`, `feedback`, and
-`decision` block referencing the target — quote them: *"Per
-research/rescuetime-2025 (89% of email checks non-actionable) and
-customer_insight/trust-the-inbox, the bet on AI triage is right."* If
-it returns nothing, **say so explicitly** ("the graph holds no evidence
-for this — I'd add a research block first") rather than asserting from
-training. Cite as `key@version`, name an assumed block as an assumption,
-and run `check_citations` on an answer before you give it.
+It returns every `research`, `customer_insight`, `feedback`, and `decision`
+block referencing the target — quote them: *"Per research/rescuetime-2025 (89%
+of email checks non-actionable) and customer_insight/trust-the-inbox, the bet
+on AI triage is right."* If it returns nothing, **say so explicitly** ("the
+graph holds no evidence for this — I'd add a research block first") rather
+than asserting from training. Cite as `key@version`, name an assumed block as
+an assumption, and run `check_citations` on an answer before you give it.
 
 **Where things live.** Brand, design system, shared personas and glossary live in the organisation's
 shared context; every project reads them as its own, marked `[org]` (`get_org_context`). Never copy or edit
@@ -235,11 +233,9 @@ After a task that changed the graph, close with a short receipt:
 
 > *"📋 EpicContext: read \<feature/X, persona/Y, decision/Z\>. Wrote \<N\> blocks — see /\<org\>/\<project\>/changes to review or undo. Updated \<M\> links."*
 
-
 ## The hard gates
 
-The workflow above doesn't depend on the agent remembering — three
-gates enforce it at the moment a shortcut would otherwise succeed.
+These gates enforce the workflow at the moment a shortcut would otherwise succeed.
 
 | Gate | Where | Triggers on | Effect |
 |---|---|---|---|
@@ -269,8 +265,7 @@ spec that names its parts; a new journey owes its steps' pages.
 
 ## Pointer table — where the detail lives
 
-Load these only when you're doing that specific work. Don't read
-them all at session start.
+Load these only for that specific work — not all at session start.
 
 | Working on… | Reference |
 |---|---|
@@ -286,19 +281,24 @@ them all at session start.
 | Pages-with-code rule + page-summary contract | `references/context-as-you-build.md` |
 | Logging friction as a skill delta (self-improvement loop) | `references/self-improvement-loop.md` |
 
+## The suite in one line per verb
+
+- What is true → Context: `create_block` / `update_block`, with a reason.
+- The plan of your work → Kanban: `share_plan`, kept current as steps finish.
+- What is left for a person → `hand_off` to a named member, never a list in chat.
+- Notes along the way (a session log, meeting notes) → Notes: `write_note`.
+- What someone must know but not do → `notify`.
+- Each tool, the organisation's shared context vs a workspace, recipes → `epicontext-suite`.
+
 ## Which skill for what
 
-The full map of the other skills: `references/skill-map.md`. Group
-skills own their entities; `epicontext-connections` owns the edges.
+The entities: `epicontext-groups` (one reference per group). Kickoff, fill,
+repair, edges, rules: `epicontext-context`. All nine: `references/skill-map.md`.
 
 ## When the graph is missing or wrong
 
-If the graph is incomplete — a feature has no JTBD link, an ADR
-contradicts the tech stack, a KPI has no measurement — **don't
-fabricate**. Either:
-
-1. Write the fix, with a `reason` naming what was missing, OR
-2. Note the gap in your output and stop until the user resolves it.
-
-You can do quality work on top of an incomplete graph as long as you
-are explicit about what you assumed.
+If the graph is incomplete — a feature has no JTBD link, an ADR contradicts
+the tech stack, a KPI has no measurement — **don't fabricate**. Either write
+the fix, with a `reason` naming what was missing, or note the gap in your
+output and stop until the user resolves it. You can do quality work on top of
+an incomplete graph as long as you are explicit about what you assumed.

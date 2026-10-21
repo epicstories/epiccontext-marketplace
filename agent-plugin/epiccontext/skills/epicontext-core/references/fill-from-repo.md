@@ -70,8 +70,8 @@ hand the user the batch — every write is in the changes feed, revertible. Ask 
 that are genuinely unknowable from evidence (the product bet, a real
 interview quote), not for everything.
 
-This proactive sweep has its own skill: **`epicontext-fill`** (the context
-pass). Reach for it at the start of working a project, whenever the graph
+This proactive sweep has its own reference: **`epicontext-context/references/fill/README.md`**
+(the context pass). Reach for it at the start of working a project, whenever the graph
 looks thin, or whenever the user says "fill / populate / complete / bring
 it to life." The point of Epic Context is that the user sits back and
 watches the graph fill itself — that only happens if you initiate.

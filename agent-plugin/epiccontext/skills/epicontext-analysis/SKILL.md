@@ -11,7 +11,7 @@ allowed-tools: Read, Grep, Glob
 metadata:
   epic.requires: ""
   epic.version: "1.0.0"
-  epic.contenthash: "5b26ed8dea3c10de"
+  epic.contenthash: "be5e8b3e9470ea5a"
 ---
 
 # Epic Context — Analysis (cross-group reasoning)
@@ -66,8 +66,8 @@ The graph this analyzes is the project graph, read through MCP:
 - **By entity or block** — `list_v3_entities`, `get_v3_entity`,
   `list_blocks`, `get_block`, `search_blocks`.
 - **Evidence behind a claim** — `get_evidence_for`.
-- **Required edges between block types** — see the
-  `epicontext-connections` skill; the write result also lists any
+- **Required edges between block types** — see
+  `epicontext-context/references/connections/README.md`; the write result also lists any
   required connection a block is missing.
 - **Drift** — `detect_drift` flags broken references and invariant
   violations; it pairs with this skill's "drift to reconcile"
@@ -85,12 +85,12 @@ stop conditions, a refinement loop that forces bias-detection, and
 what lands in the graph — written directly with `create_block` /
 `update_block`, each with a `reason` that shows in the changes feed.
 
-- `methodologies/war-gaming.md` — stress-test a strategy against six
+- `references/methodologies/war-gaming.md` — stress-test a strategy against six
   scenario categories (competitor / customer / market / regulatory /
   operational / financial), build a response playbook bound to
   observable early-warning signals already in the graph. Run before
   committing to a strategy that could be disrupted.
-- `methodologies/growth-diagnosis.md` — diagnose stalled growth by
+- `references/methodologies/growth-diagnosis.md` — diagnose stalled growth by
   building a MECE driver tree, isolating the single binding
   constraint via Theory of Constraints, then distinguishing root
   cause from symptom via 5-whys. Run when the user reports "we're
@@ -104,19 +104,20 @@ methodologies are the muscle.
 
 ## Cross-group entry points
 
-Each group's SKILL.md applies the analysis pattern to its own signals:
+Each group in `epicontext-groups` applies the analysis pattern to its own
+signals, in its `analysis-flows.md` (marketing in its `README.md`):
 
-| Group | Common signal types this skill helps classify |
+| Group flows | Common signal types this skill helps classify |
 |---|---|
-| epicontext-users | customer survey, persona drift, journey friction, JTBD shift |
-| epicontext-product | feature usage, IA findability, content drift, glossary inconsistency |
-| epicontext-business-strategy | OGSM at risk, competitor moves, business model strain |
-| epicontext-brand | voice drift, positioning erosion, messaging not landing |
-| epicontext-build | performance regression, tech debt, security/legal exposure, accessibility gaps |
-| epicontext-marketing | campaign underperforming, channel mix drift, claims the product doesn't back |
-| epicontext-performance | KPI shifts, AEO visibility, feedback synthesis |
+| `epicontext-groups/references/users/analysis-flows.md` | customer survey, persona drift, journey friction, JTBD shift |
+| `epicontext-groups/references/product/analysis-flows.md` | feature usage, IA findability, content drift, glossary inconsistency |
+| `epicontext-groups/references/strategy/analysis-flows.md` | OGSM at risk, competitor moves, business model strain |
+| `epicontext-groups/references/brand/analysis-flows.md` | voice drift, positioning erosion, messaging not landing |
+| `epicontext-groups/references/build/analysis-flows.md` | performance regression, tech debt, security/legal exposure, accessibility gaps |
+| `epicontext-groups/references/marketing/README.md` | campaign underperforming, channel mix drift, claims the product doesn't back |
+| `epicontext-groups/references/performance/analysis-flows.md` | KPI shifts, AEO visibility, feedback synthesis |
 
-Read the per-group SKILL.md when the signal is local; read this skill
+Read the group's flows when the signal is local; read this skill
 when reasoning across groups.
 
 ## Anti-patterns this skill refuses

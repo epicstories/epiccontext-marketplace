@@ -236,7 +236,7 @@ The recommendation isn't "fix" or "ignore" — it's a specific product change wi
 
 **Confusing drift with disagreement.** Drift is "two parts of the graph desynced; we didn't decide this." Tension is "two parts of the graph were never going to fully agree." Different responses: drift gets reconciled; tension gets explicitly accepted.
 
-**Analysis as procrastination.** Sometimes the answer is obvious; the signal is small; the cost of delay exceeds the cost of being wrong. Don't traverse infinitely. Match analysis depth to stake size — same principle as `users-group/.../research-vs-ship.md` for research investment.
+**Analysis as procrastination.** Sometimes the answer is obvious; the signal is small; the cost of delay exceeds the cost of being wrong. Don't traverse infinitely. Match analysis depth to stake size — same principle as `epicontext-groups/references/users/decisions/research-vs-ship.md` for research investment.
 
 ## How this fits the workflow
 
@@ -254,11 +254,11 @@ The graph isn't just a record-keeping device. It's a thinking tool. The analysis
 
 Each group's `analysis-flows.md` file applies this pattern to signals that originate in or land in that group:
 
-- `users-group/references/analysis-flows.md` — customer survey, persona drift, journey friction, JTBD shift
-- `product-group/references/analysis-flows.md` — feature usage, IA findability, content drift, glossary inconsistency
-- `strategy-group/references/analysis-flows.md` — OGSM at risk, competitor moves, business model strain
-- `brand-group/references/analysis-flows.md` — voice drift, positioning erosion, messaging not landing
-- `build-group/references/analysis-flows.md` — performance regression, tech debt, security/legal exposure, accessibility gaps
-- `performance-group/references/analysis-flows.md` — KPI shifts, AEO visibility, feedback synthesis
+- `epicontext-groups/references/users/analysis-flows.md` — customer survey, persona drift, journey friction, JTBD shift
+- `epicontext-groups/references/product/analysis-flows.md` — feature usage, IA findability, content drift, glossary inconsistency
+- `epicontext-groups/references/strategy/analysis-flows.md` — OGSM at risk, competitor moves, business model strain
+- `epicontext-groups/references/brand/analysis-flows.md` — voice drift, positioning erosion, messaging not landing
+- `epicontext-groups/references/build/analysis-flows.md` — performance regression, tech debt, security/legal exposure, accessibility gaps
+- `epicontext-groups/references/performance/analysis-flows.md` — KPI shifts, AEO visibility, feedback synthesis
 
 Each group's flows include a **Cross-group considerations** section listing the most common signals that originate there and which other groups' context to pull. Read the per-group file when the signal is local; read this file when reasoning across groups.

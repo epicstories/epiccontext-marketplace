@@ -10,7 +10,7 @@ description: >
 metadata:
   epic.requires: "component_spec,brand_visual_identity,tone_of_voice,persona"
   epic.version: "1.0.0"
-  epic.contenthash: "393f12a8692b8259"
+  epic.contenthash: "e8db204f5b0bf493"
 ---
 
 # Epic Context — Design
@@ -270,7 +270,7 @@ the same documentation anatomy as Button.
 ## Pairs with
 
 `epicontext-frontend` (building the chosen direction in the project's stack),
-`epicontext-build` (the design system entity and its depth bar),
-`epicontext-brand` (voice and positioning for the seed),
-`epicontext-users` (persona and journey for the brief),
+`epicontext-groups/references/build/entities/design-system.md` (the design system entity and its depth bar),
+`epicontext-groups/references/brand/README.md` (voice and positioning for the seed),
+`epicontext-groups/references/users/README.md` (persona and journey for the brief),
 `epicontext-core` (the read-then-write-with-reason workflow).

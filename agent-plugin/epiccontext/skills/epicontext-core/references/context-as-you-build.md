@@ -20,12 +20,12 @@ Why this is a hard rule, not a nice-to-have:
 
 The mandate is enforced in three skills:
 
-- **`epicontext-product`** — pages are mandatory companions to features.
+- **`epicontext-groups` (product)** — pages are mandatory companions to features.
   `content_page.feature_refs` is a required canonical connection; a
   page without one is flagged as incomplete.
 - **`epicontext-frontend`** — when you build a page in code, you write
   its `content_page` block in the same change.
-- **`epicontext-development`** — every UI story that lands ships with a
+- **`epicontext-suite` (feature-to-work)** — every UI story that lands ships with a
   paired content_page write in its acceptance criteria.
 
 Read the per-skill detail when you're in that mode. The rule is the
@@ -88,5 +88,5 @@ to request.
 
 If you write or update a page and skip the summary or the links, you've
 shipped half the context. The exact body shape lives in
-`epicontext-product` and `epicontext-frontend`; the connection contract
-lives in `epicontext-connections`.
+`epicontext-groups` (product) and `epicontext-frontend`; the connection contract
+lives in `epicontext-context` (connections).

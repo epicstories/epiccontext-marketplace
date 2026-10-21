@@ -9,7 +9,7 @@ description: >
 metadata:
   epic.requires: "tech_stack,architecture_diagram,data_model,api_spec,decision"
   epic.version: "1.0.0"
-  epic.contenthash: "5f380a2a0cfd3f82"
+  epic.contenthash: "46c288731fa7ac86"
 ---
 
 # Epic Context — Backend
@@ -39,8 +39,8 @@ The graph is the source of truth. Pull from MCP — not from any local
 | Compliance constraints    | `get_v3_entity entity=legal`                   |
 | Feature you're building   | `get_block key=<feature-key>`                  |
 
-For deeper methodology pair with `epicontext-build` (decisions / ADRs,
-tech stack, architecture, infrastructure, legal).
+For deeper methodology pair with `epicontext-groups/references/build/README.md`
+(decisions / ADRs, tech stack, architecture, infrastructure, legal).
 
 ## Backend principles
 

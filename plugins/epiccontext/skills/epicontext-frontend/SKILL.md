@@ -2,14 +2,15 @@
 name: epicontext-frontend
 description: >
   Use when building UI for an EpicContext-managed project — components,
-  pages, flows, styling or UI copy — in any stack (React, Vue, Svelte,
-  Astro, plain HTML, native). Pulls design tokens, brand voice, IA and
-  page copy from the project graph via MCP, and lands every page as a
-  content_page and every UI surface as a component_spec in the same change.
+  pages, flows, styling or UI copy — in any stack, or when choosing or
+  reviewing a frontend framework (React, Next.js, Vue, Nuxt, Svelte, Solid,
+  Astro, Angular, htmx; "is it overkill?"). Pulls tokens, voice, IA and page
+  copy from the graph via MCP; lands every page as a content_page and every
+  UI surface as a component_spec.
 metadata:
-  epic.requires: "tech_stack,component_spec,content_page,tone_of_voice"
+  epic.requires: "tech_stack,component_spec,content_page,tone_of_voice,decision"
   epic.version: "1.0.0"
-  epic.contenthash: "d1c1646979478267"
+  epic.contenthash: "146d5cf8a793315f"
 ---
 
 # Epic Context — Frontend
@@ -23,7 +24,7 @@ has a `component_spec`.** Context-as-you-build, not context-after-the-fact.
 These rules are stack-neutral. The project's `tech_stack` block says what
 it is built in; read it before assuming anything. For stack-specific
 how-tos (one stack each, clearly labelled) see
-`epicontext-framework-selection/references/` — e.g. `react-nextjs.md`.
+`references/framework-selection/` — e.g. `react-nextjs.md`.
 
 ## When to use
 
@@ -33,6 +34,12 @@ how-tos (one stack each, clearly labelled) see
 - Implementing a `feature` block in code
 - Writing copy for UI surfaces (pulls tone/voice from the graph)
 - Wiring a page route to its `ia_tree` entry and `content_page` block
+- **Choosing or reviewing a framework** — a new prototype, "what should we
+  build this in?", "is this overkill?": read
+  `references/framework-selection/README.md` (the overkill ladder,
+  build-health checks, one file per framework: `angular.md`, `astro.md`,
+  `htmx-server-rendered.md`, `react-nextjs.md`, `solid.md`,
+  `svelte-sveltekit.md`, `vue-nuxt.md`) and record the choice as an ADR.
 
 ## How to read project context
 
@@ -50,8 +57,8 @@ The graph is the source of truth. Pull from MCP — not from any local
 | Feature you're building    | `get_block key=<feature-key>`                  |
 | Everything for one task    | `get_briefing(task_type: "ui-component" or "ui-page", target)` |
 
-For deeper methodology pair with `epicontext-product` (features, content,
-IA), `epicontext-brand` (voice), and `epicontext-design` (exploring
+For deeper methodology pair with `epicontext-groups` — its product reference
+(features, content, IA) and brand reference (voice) — and `epicontext-design` (exploring
 directions on a canvas, the design-system standard).
 
 ## Design philosophy
@@ -242,8 +249,8 @@ Before you write UI code:
 
 For the *why* behind taking design systems seriously — productivity
 data, defect-density research, accessibility compounding — see
-`epicontext-build/references/entities/design-system.md` and evidence
-EVD-BLD-014 to EVD-BLD-018 in that skill's `references/evidence.md`.
+`epicontext-groups/references/build/entities/design-system.md` and evidence
+EVD-BLD-014 to EVD-BLD-018 in `epicontext-groups/references/build/evidence.md`.
 Short version: studies put productivity gains at 30–50% once a system is
 mature, IBM Carbon measured 47% faster UI builds, and reused components
 carry measurably lower defect density.

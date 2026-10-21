@@ -148,7 +148,7 @@ Then write (each with a `reason`):
   feature(s) as `features_ref`.
 
 **Hand off to `kpi-architecture.md`** under
-`epicontext-performance/references/methodologies/` for any new KPI
+`epicontext-groups/references/performance/methodologies/` for any new KPI
 that needs the full driver-tree + owner + cadence treatment. Don't
 inline-design KPIs here.
 

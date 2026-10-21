@@ -18,7 +18,7 @@ This is why every canonical entity has *required* outgoing connections:
 - `tech_stack.product_ref` → product_overview
 - `architecture_diagram.tech_stack_ref` → tech_stack
 - `competitor.strategy_ref` → product_strategy_canvas
-- (~20 more — the full table is in the `epicontext-connections` skill)
+- (~20 more — the full table is in the `epicontext-context` (connections) skill)
 
 These aren't suggestions. The scaffold pre-wires them between the
 starter blocks, the editor and `check_project_health` flag a block that

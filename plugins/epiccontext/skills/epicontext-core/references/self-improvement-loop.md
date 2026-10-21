@@ -27,7 +27,8 @@ Propose one whenever you hit:
    `operation: "create"`.
 
 3. **Missing evidence** — you made a recommendation but couldn't cite
-   anything from `references/evidence.md`. If you do know a trustworthy
+   anything from the group's `evidence.md` (e.g.
+   `epicontext-groups/references/users/evidence.md`). If you do know a trustworthy
    source for the claim, propose an `append` to `evidence.md` with the
    citation. Use the existing format (`EVD-<GROUP>-<NUMBER>`,
    claim/source/citation/caveat/used-in).
@@ -55,7 +56,8 @@ Propose one whenever you hit:
    known claim, a KPI result that validates (or contradicts) a
    methodology, a research paper / industry report the user
    referenced, an ADR whose trade-off generalises beyond this project.
-   Propose an `append` to the relevant skill's `references/evidence.md`
+   Propose an `append` to the relevant group's `evidence.md`
+   (`epicontext-groups`, `references/<group>/evidence.md`)
    with the same `EVD-<GROUP>-NNN` format used by the seed entries.
 
    Two flavours of source, both valid:
@@ -83,9 +85,9 @@ Propose one whenever you hit:
 
 ```
 propose_skill_delta(
-  skill_name = "epicontext-<group>",            // e.g. "epicontext-users"
-  reference_path = "references/<file>",         // e.g. "references/evidence.md"
-                                                // or "references/examples/<new-file>.md"
+  skill_name = "epicontext-<skill>",            // e.g. "epicontext-groups"
+  reference_path = "references/<file>",         // e.g. "references/users/evidence.md"
+                                                // or "references/users/examples/<new-file>.md"
   operation = "append" | "create",
   proposed_content = "<the new content, in the same style as the surrounding file>",
   rationale = "<why this generalises beyond the current project>",
