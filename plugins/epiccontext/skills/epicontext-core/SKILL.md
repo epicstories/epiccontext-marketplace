@@ -9,7 +9,7 @@ description: >
 metadata:
   epic.requires: ""
   epic.version: "1.0.0"
-  epic.contenthash: "98b29388e648f7bf"
+  epic.contenthash: "1b43a8f0e4deff31"
 ---
 
 # EpicContext — Core Rules
@@ -27,9 +27,7 @@ change it without saying why.
 
 ## The 5-step workflow — your whole job, in one place
 
-Every task that touches an EpicContext project runs through this
-pipeline. Each step is one tool call. Skip a step and the gates will
-catch you.
+Every task runs through this pipeline; each step is one tool call.
 
 ```
 1. ORIENT    — know the binding (project + state) before turn 1
@@ -42,14 +40,18 @@ catch you.
 
 ### Step 1 — ORIENT
 
-Before your first response, know the binding: which project, what
-state, what changed recently.
+Before your first response — and before any research, plan, advice or
+design — know what the brain already holds.
 
-- The `.epicontext` file at repo root carries the binding (project id,
-  slug, URL, MCP API key).
-- A SessionStart banner or UserPromptSubmit hook may surface this. If
-  not, call `get_orientation`: it ends with the **next step** for the project's
-  state (shared context, scaffold, kickoff or `get_briefing`). Follow it.
+- In a repo, `.epicontext` names the project and the session-start hook
+  says which. Otherwise call `get_orientation`: with a project its state
+  and the **next step** (follow it); without one (a chat, a plan,
+  research) the organisations and their shared context.
+- A plan or research about the organisation, its tools or a new product
+  starts in its shared context: read the ADRs and plans that govern the
+  subject before proposing anything.
+- Agents that cannot reach Epic Context (web research, research agents,
+  subagents) get what you found in their brief: keys, decisions, limits.
 - **On your first response, name the binding to the user.** Layer 1
   visibility — see "How you talk to the user" below.
 
@@ -216,8 +218,7 @@ one here: differ per field with `override_block` and a reason; a block that is r
 
 ## How you talk to the user
 
-The user can't see your tool calls — they see your text. Make the
-binding visible and give them receipts.
+The user sees your text, not your tool calls: name the binding, give receipts.
 
 ### Layer 1 — open every session by naming the binding
 
@@ -226,8 +227,7 @@ project in plain text:
 
 > *"Connected to EpicContext: \<Project Name\> (\<org-slug\>/\<project-slug\>). Let me read context for your task first…"*
 
-Saying nothing about the binding is the failure mode — the user has no
-way to tell if EpicContext is wired up.
+Saying nothing is the failure mode: the user can't tell it is wired up.
 
 ### Layer 2 — give a receipt after any write
 

@@ -4,12 +4,13 @@ description: >
   Use when designing a screen, component or flow for an EpicContext
   project, setting up its design system or brandbook (logo, palette,
   type, assets, examples) — or on: /design, design canvas, brand guide,
-  mockup, component anatomy. Seeds the canvas with the graph's real
-  tokens, voice and persona; lands work as specs, assets and examples.
+  mockup, component anatomy, or explaining a design in Figma with its
+  context. Seeds the canvas with the graph's real tokens, voice and
+  persona; places context as Epic Context's cards; lands the work.
 metadata:
   epic.requires: "component_spec,brand_visual_identity,tone_of_voice,persona"
   epic.version: "1.0.0"
-  epic.contenthash: "afba2ca482d886ed"
+  epic.contenthash: "393f12a8692b8259"
 ---
 
 # Epic Context — Design
@@ -169,6 +170,10 @@ The highest-value use, and the one that compounds:
   decide; the graph is where the decision lives.
 - **Adding a component because it's a new screen.** New screens are the
   usual reason design systems rot. Compose.
+- **Redrawing a persona or a journey beside a design.** Context in Figma
+  is Epic Context's own card, placed with `get_context_card` and linked
+  to the block; its colours and font may follow the design — see
+  `references/context-cards.md`.
 
 ## Standing up a NEW project
 
@@ -256,7 +261,9 @@ the same documentation anatomy as Button.
   same system that page documents.
 - The built-in `/design` skill — do the canvas work there; this skill
   never reimplements it.
-- Other references: `references/figma-sync.md` (code ↔ Figma fidelity),
+- Other references: `references/context-cards.md` (a persona, journey or
+  any block beside a design, as Epic Context's card with a link),
+  `references/figma-sync.md` (code ↔ Figma fidelity),
   `references/figma-export.md` (generating Figma from the library),
   `references/epiccontext-gate.md` (the installable gate).
 

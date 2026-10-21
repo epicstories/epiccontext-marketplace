@@ -9,7 +9,7 @@ description: >
 metadata:
   epic.requires: ""
   epic.version: "1.0.0"
-  epic.contenthash: "cc362b3e5be97fef"
+  epic.contenthash: "8156350627f56e98"
 ---
 
 # EpicContext → whiteboards (FigJam, Miro)
@@ -48,6 +48,23 @@ session's language):
 | Legend | One muted line explaining the colors + the ask ("add blue stickies…") |
 | Footer | "Made with EpicContext — this board is a projection of the graph. Blue stickies are read back into the graph after the session." |
 | Logo | Optional; upload the SVG (`upload_assets` on FigJam, image-URL on Miro). The source line matters more. |
+
+## Context as Epic Context's card
+
+When a board shows *who it is for and where it sits* (a persona, a journey,
+a feature, a decision) beside the workshop content, that context is Epic
+Context's own card, not a hand-made summary:
+
+- `get_context_card(key, highlight?)` returns the card's `data` and `url`.
+  Build it in the board's own shapes, in this order: the eyebrow
+  (`<TYPE> · EPIC CONTEXT`), the title; a persona's role, quote and
+  sections; a journey's phase bands with steps and moods (the
+  `highlight`ed one marked); a block's summary and maturity. End with the
+  source line and the `url` as a link on the title and the source line.
+- The board's look (its fonts, its colours, Miro's named sticky colours);
+  the card's structure and wording stay Epic Context's.
+- In a Figma design file (not FigJam) place the card's `svg` itself —
+  `epicontext-design/references/context-cards.md`.
 
 ## What maps to what
 
