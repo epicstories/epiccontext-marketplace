@@ -8,7 +8,7 @@ if ! ec_bound; then
   # Not a repo of one project — a plan, research, a question about the
   # organisation (Robert, 21 October): the brain still comes first.
   cat <<'MSG'
-Epic Context is connected: the brain of your organisations (decisions, plans, research, brand, product, how the team works). Before you research, plan, advise or design anything for them, look there first: get_orientation without a project_id lists the organisations and their shared context, then get_briefing or search_blocks for the subject. Web research and research agents cannot reach Epic Context: put what you found in their brief.
+Epic Context is connected: the brain of your organisations (decisions, plans, research, brand, product, how the team works). Before you research, plan, advise or design anything for them, look there first: get_orientation without a project_id lists the organisations and their shared context, then get_briefing or search_blocks for the subject. Web research and research agents cannot reach Epic Context: give them get_context_pack (a paste-ready summary with sources) in their brief.
 MSG
   exit 0
 fi
@@ -17,7 +17,7 @@ name="${EC_PROJECT_NAME:-this project}"
 cat <<MSG
 This repo works with Epic Context: project ${name} (id ${EC_PROJECT}). Its context — brand, users, product, design system, decisions — lives there, not in this repo.
 
-1. First call get_orientation with project_id ${EC_PROJECT} through the Epic Context MCP connector. Before research, a plan or advice — about this project or the organisation — look in Epic Context first (get_briefing, search_blocks; the organisation's shared context for its decisions and plans), and brief research agents and subagents with what you found: they cannot reach it.
+1. First call get_orientation with project_id ${EC_PROJECT} through the Epic Context MCP connector. Before research, a plan or advice — about this project or the organisation — look in Epic Context first (get_briefing, search_blocks; the organisation's shared context for its decisions and plans), and brief research agents and subagents with get_context_pack: they cannot reach it.
 2. Before UI, strategy or architecture work: get_briefing(task_type, target, project_id ${EC_PROJECT}). Pass its briefing_id with every create_block / update_block. Edits to UI files are held until a briefing was fetched in this session.
 3. Write decisions, rules and learnings back to Epic Context with a reason (save_rule / log_learning), never to a local memory file.
 4. Open what you touch beside the chat, right away, every time, in your browser pane (in Claude desktop: the built-in browser; otherwise Claude in Chrome): the url of each block you write, the plan's card that share_plan returns, and — when you change a component or a page — its page in the design system or its content page (the UI briefing names it). Without a browser, give the url.

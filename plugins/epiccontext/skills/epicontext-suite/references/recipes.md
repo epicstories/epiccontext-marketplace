@@ -26,8 +26,8 @@ is a card for that person, and you give the `url` of what you wrote.
    competitors, customer insights, the decisions that frame the question
    (`get_evidence_for` on the target).
 2. **Brief the agents**: research agents, subagents and web research can't
-   reach Epic Context. Put the block keys, the decisions, the constraints
-   and what is already known in their brief, and ask them for sources.
+   reach Epic Context. `get_context_pack(task_type: "research", target, task)`
+   is their brief's context — paste it as it is, and ask them for sources.
 3. **Land the findings** as blocks (`research`, `competitor`,
    `customer_insight`, …) with their sources named, at `assumed`; link them
    to what they support or contradict (`link_blocks`).

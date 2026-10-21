@@ -9,7 +9,7 @@ description: >
 metadata:
   epic.requires: ""
   epic.version: "1.0.0"
-  epic.contenthash: "cc3706c75ce43dd2"
+  epic.contenthash: "b1c723909f256637"
 ---
 
 # EpicContext — Core Rules
@@ -50,8 +50,8 @@ design — know what the brain already holds.
 - A plan or research about the organisation, its tools or a new product
   starts in its shared context: read the ADRs and plans that govern the
   subject before proposing anything.
-- Agents that cannot reach Epic Context (web research, research agents,
-  subagents) get what you found in their brief: keys, decisions, limits.
+- Agents and tools that cannot reach Epic Context (web research, research
+  agents, subagents) get `get_context_pack(task_type, target, task)` in their brief.
 - **On your first response, name the binding to the user.** Layer 1
   visibility — see "How you talk to the user" below.
 

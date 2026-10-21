@@ -9,7 +9,7 @@ description: >
 metadata:
   epic.requires: ""
   epic.version: "1.0.0"
-  epic.contenthash: "1b171df27e4b40dd"
+  epic.contenthash: "c6d111bfe4034ef8"
 ---
 
 # Epic Context — Working in the Epic Suite
@@ -62,9 +62,11 @@ organisation, read what the brain already holds:
 3. Build on what is there: the decisions (ADRs) and plans that govern the
    subject come before your own ideas.
 
-**Research agents, subagents and web research can't reach Epic Context.**
-Put what you found in their brief: the block keys, the decisions, the
-constraints, what is already known — and land what they bring back yourself.
+**Research agents, subagents, web research and external tools can't reach
+Epic Context.** Give them `get_context_pack(task_type, target, task)` in
+their brief: one paste-ready summary — the decisions that bind, what is
+known, what is missing, every source as `key@version` with its link. Paste
+it as it is, and land what they bring back yourself.
 
 ## The organisation and its workspaces
 
