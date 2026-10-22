@@ -9,7 +9,7 @@ description: >
 metadata:
   epic.requires: ""
   epic.version: "1.0.0"
-  epic.contenthash: "b1c723909f256637"
+  epic.contenthash: "c143e0eb4e8dbb77"
 ---
 
 # EpicContext — Core Rules
@@ -40,8 +40,7 @@ Every task runs through this pipeline; each step is one tool call.
 
 ### Step 1 — ORIENT
 
-Before your first response — and before any research, plan, advice or
-design — know what the brain already holds.
+Before your first response — and before any research, plan, advice or design — know what the brain already holds.
 
 - In a repo, `.epicontext` names the project and the session-start hook
   says which. Otherwise call `get_orientation`: with a project its state
@@ -293,7 +292,8 @@ Load these only for that specific work — not all at session start.
 ## Which skill for what
 
 The entities: `epicontext-groups` (one reference per group). Kickoff, fill,
-repair, edges, rules: `epicontext-context`. All nine: `references/skill-map.md`.
+repair, edges, rules: `epicontext-context`. **Anything about design** — judge,
+critique, choose, make — `epicontext-design`, always. All nine: `references/skill-map.md`.
 
 ## When the graph is missing or wrong
 

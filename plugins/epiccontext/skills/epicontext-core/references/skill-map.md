@@ -12,7 +12,7 @@ skill's folder: for `get_skill`, put the skill name in front
 | `epicontext-context` | Making and keeping the brain right: kickoff, fill, alignment and repair, connections, the constitution |
 | `epicontext-groups` | The eight groups and their entities, one reference folder per group |
 | `epicontext-analysis` | Cross-group reasoning: classify a signal, recommend with trade-offs |
-| `epicontext-design` | The design canvas, the brandbook, context cards in Figma |
+| `epicontext-design` | Every design judgment and design act — critique, choose, generate a screen, flow or component — with Robert's standard; the canvas, the brandbook, Figma |
 | `epicontext-boards` | Workshops on Miro / FigJam boards |
 | `epicontext-frontend` | Building UI in any stack; choosing a frontend framework |
 | `epicontext-backend` | APIs, data, auth, server code |
@@ -36,6 +36,7 @@ skill's folder: for `get_skill`, put the skill name in front
 | SEO, SEA, GEO/AEO — search and AI-answer visibility | `epicontext-groups/references/marketing/search-optimization/README.md` |
 | KPIs, analytics, feedback | `epicontext-groups/references/performance/README.md` |
 | Cross-group reasoning, diagnoses | `epicontext-analysis` |
+| Judging, critiquing, choosing or designing a screen, flow or component — always | `epicontext-design` |
 | Designing screens and variants on the design canvas | `epicontext-design` |
 | Workshops on Miro / FigJam boards | `epicontext-boards` |
 | Building UI (any stack) | `epicontext-frontend` |

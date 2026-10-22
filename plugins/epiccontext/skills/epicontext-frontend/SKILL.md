@@ -10,7 +10,7 @@ description: >
 metadata:
   epic.requires: "tech_stack,component_spec,content_page,tone_of_voice,decision"
   epic.version: "1.0.0"
-  epic.contenthash: "146d5cf8a793315f"
+  epic.contenthash: "fc870dbd6a16d4cf"
 ---
 
 # Epic Context — Frontend
@@ -57,9 +57,9 @@ The graph is the source of truth. Pull from MCP — not from any local
 | Feature you're building    | `get_block key=<feature-key>`                  |
 | Everything for one task    | `get_briefing(task_type: "ui-component" or "ui-page", target)` |
 
-For deeper methodology pair with `epicontext-groups` — its product reference
-(features, content, IA) and brand reference (voice) — and `epicontext-design` (exploring
-directions on a canvas, the design-system standard).
+Pair with `epicontext-groups` — its product reference (features, content, IA) and brand reference (voice) — and
+always with `epicontext-design`: it judges the direction before you build, and the result after (its test step, the
+craft floor, the principles). This skill builds what it approved; it does not judge design itself.
 
 ## Design philosophy
 
