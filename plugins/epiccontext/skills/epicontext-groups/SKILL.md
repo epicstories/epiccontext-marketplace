@@ -10,7 +10,7 @@ description: >
 metadata:
   epic.requires: "analytics_event,api_endpoint,api_spec,architecture_diagram,brand_asset,brand_moodboard,brand_positioning,brand_visual_identity,budget,business_case,business_model_canvas,campaign,channel,competitor,component_spec,constraint,content_page,content_piece,customer_insight,data_model,data_schema,decision,design_application,dev_setup,feature,feature_market_analysis,feedback,figma_embed,glossary,ia_tree,insight,integration,journey_map,jtbd,kpi,legal_document,marketing_strategy,messaging_framework,metric,north_star,obeya_board,ogsm,persona,porters_five_forces,product_overview,product_strategy_canvas,research_data,roadmap,running_costs,storybook_link,strategic_group_map,swot_analysis,taxonomy,tech_stack,testing_strategy,tone_of_voice,user_research,vision"
   epic.version: "1.0.0"
-  epic.contenthash: "9771f99093c1e765"
+  epic.contenthash: "c2c92a1d311c9c78"
 ---
 
 # Epic Context — The groups of the graph
@@ -58,7 +58,7 @@ decisions or production use (`mark_validated` with the evidence).
 | **Strategy** | Where are we going? | product strategy, business model, OGSM, roadmap, business case | `references/strategy/README.md` |
 | **Users** | Who for and why? | persona, JTBD, journey map, customer insight, competitor, research | `references/users/README.md` |
 | **Product** | What is it? | overview, feature, glossary, information architecture, content | `references/product/README.md` |
-| **Design** | How does it look and feel? | design system | `references/build/entities/design-system.md`, and `epicontext-design` for the canvas and the brandbook |
+| **Design** | How does it look and feel? | design system | `references/build/entities/design-system.md`, and `epicontext-design` for judging and making it: the canvas, the brandbook |
 | **Build** | How does it work? | tech stack, architecture, infrastructure, decision (ADR), legal, finance | `references/build/README.md`; finance: `references/build/finance/README.md` |
 | **Marketing** | How do we grow? | marketing strategy, campaign, channel, content piece | `references/marketing/README.md`; search: `references/marketing/search-optimization/README.md` |
 | **Performance** | Is it working? | analytics, KPI, feedback | `references/performance/README.md` |

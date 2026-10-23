@@ -37,7 +37,7 @@ skill's folder: for `get_skill`, put the skill name in front
 | KPIs, analytics, feedback | `epicontext-groups/references/performance/README.md` |
 | Cross-group reasoning, diagnoses | `epicontext-analysis` |
 | Judging, critiquing, choosing or designing a screen, flow or component — always | `epicontext-design` |
-| Designing screens and variants on the design canvas | `epicontext-design` |
+| Designing screens and variants on the design canvas | `epicontext-design/references/canvas-and-brandbook.md` |
 | Workshops on Miro / FigJam boards | `epicontext-boards` |
 | Building UI (any stack) | `epicontext-frontend` |
 | Choosing or reviewing a frontend framework | `epicontext-frontend/references/framework-selection/README.md` |

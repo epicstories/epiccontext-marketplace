@@ -24,7 +24,7 @@ A real design_system block tells a new contributor: *what tokens exist, what com
 > `~~~theme`. Each `component_spec` carries **Anatomy & specs**: per part
 > its zone, purpose and the foundations it uses (type, colour, padding,
 > margin, radius as tokens). Fence syntax: `epicontext-core` → markdown
-> conventions → Design primitives; the chapter guide: `epicontext-design`.
+> conventions → Design primitives; the chapter guide: `epicontext-design/references/canvas-and-brandbook.md`.
 
 ## Why most design_system blocks are too thin
 
