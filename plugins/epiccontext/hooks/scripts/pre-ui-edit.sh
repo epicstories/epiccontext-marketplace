@@ -35,6 +35,6 @@ case "$file" in
   *) task_type="ui-component" ;;
 esac
 
-reason="$(printf 'Epic Context: read before you change UI. Call get_briefing(task_type: "%s", target: "%s", project_id: "%s") through the Epic Context MCP connector, follow it — design is judged with the epicontext-design skill: load it if you have not — then make this edit again and pass its briefing_id when you write context. If the Epic Context tools are not available in this session, say so to the user and retry the edit; it will go through.' "$task_type" "$target" "$EC_PROJECT" | ec_json_string)" || exit 0
+reason="$(printf 'Epic Context: read before you change UI. Call get_briefing(task_type: "%s", target: "%s", project_id: "%s") through the Epic Context MCP connector, follow it — design is judged with the epicontext-design skill: load it with get_skill and the project_id if you have not, so you also get the design rules of this project — then make this edit again and pass its briefing_id when you write context. If the Epic Context tools are not available in this session, say so to the user and retry the edit; it will go through.' "$task_type" "$target" "$EC_PROJECT" | ec_json_string)" || exit 0
 printf '{"hookSpecificOutput":{"hookEventName":"PreToolUse","permissionDecision":"deny","permissionDecisionReason":%s}}\n' "$reason"
 exit 0

@@ -11,9 +11,9 @@ entries. These are the rules-of-the-house that bind every other block.
   across the project, or when a section needs its own local rules /
   AI-agent configuration captured.
 - **Not** for architecture decisions — those are `decision` ADRs;
-  load `epicontext-groups/references/build/methodologies/adr-workshop.md`.
+  load `epicontext-build/references/methodologies/adr-workshop.md`.
 - **Not** for strategic constraints — those are strategy entities;
-  load `epicontext-groups` (strategy).
+  load `epicontext-strategy`.
 
 ## Block types you own
 

@@ -9,7 +9,7 @@ description: >
 metadata:
   epic.requires: ""
   epic.version: "1.0.0"
-  epic.contenthash: "c6d111bfe4034ef8"
+  epic.contenthash: "de2baffb57834d5f"
 ---
 
 # Epic Context — Working in the Epic Suite
@@ -141,6 +141,6 @@ Without the suite, plans, notes and hand-offs are kept in Epic Context and
 ## Pairs with
 
 `epicontext-core` (always — the workflow and the gates), `epicontext-context`
-(making the brain right), `epicontext-groups` (what a block should say),
+(making the brain right), the eight experts (what a block should say),
 `epicontext-design` and `epicontext-boards` (context cards in Figma, Miro,
 FigJam).

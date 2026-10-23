@@ -256,8 +256,8 @@ the same documentation anatomy as Button.
 
 ## Pairs with
 
-`epicontext-frontend` (building the chosen direction in the project's stack),
-`epicontext-groups/references/build/entities/design-system.md` (the design system entity and its depth bar),
-`epicontext-groups/references/brand/README.md` (voice and positioning for the seed),
-`epicontext-groups/references/users/README.md` (persona and journey for the brief),
+`epicontext-build` (frontend: building the chosen direction in the project's stack),
+`epicontext-design/references/entities/design-system.md` (the design system entity and its depth bar),
+`epicontext-brand/SKILL.md` (voice and positioning for the seed),
+`epicontext-users/SKILL.md` (persona and journey for the brief),
 `epicontext-core` (the read-then-write-with-reason workflow).

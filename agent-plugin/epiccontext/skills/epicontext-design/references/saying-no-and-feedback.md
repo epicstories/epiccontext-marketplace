@@ -19,7 +19,7 @@ is to protect the experience without becoming the obstacle:
 
 When comments or feedback arrive — from a stakeholder, a user test, a
 `feedback` entity, or `ingest_comments` — do not apply them; **classify**
-them first. `epicontext-analysis` holds the taxonomy: a real problem, an
+them first. The five-step analysis (`epicontext-core/references/analysis/README.md`) holds the taxonomy: a real problem, an
 acceptable trade-off, drift, a wrong-persona signal, or vanity. Ask what
 the person was trying to do, where they were in the journey, and what the
 comment does not say. Then propose, with the principle it touches, whether

@@ -14,9 +14,9 @@ what is theirs — and in PR descriptions + git, not in the graph.
 - **Use** to break a feature into stories + tasks, score impact/
   effort, sequence for the next sprint.
 - **Not** for defining the roadmap itself — that's an entity in
-  `epicontext-groups` (strategy).
-- **Not** for writing the code — that's `epicontext-frontend` /
-  `epicontext-backend`.
+  `epicontext-strategy`.
+- **Not** for writing the code — that's `epicontext-build` (frontend /
+  backend).
 
 ## The planning rhythm
 
@@ -27,7 +27,7 @@ what is theirs — and in PR descriptions + git, not in the graph.
    doesn't trace to a user need is drift on day one.
 3. **Trace downstream to pages**: every feature must link to ≥1
    `content_page`. Missing? **The first story is "Mint content_page
-   for /the/route and bind to feature X"** — see `epicontext-frontend`
+   for /the/route and bind to feature X"** — see `epicontext-build` (frontend)
    for how to write the page block.
 4. **Break down**: each story = one PR's-worth of work, named scope.
    UI-touching stories MUST include "and update / create the matching

@@ -61,7 +61,7 @@ Before recommending, name the load-bearing assumptions.
 - **Implicit assumptions** are things the work depends on but doesn't
   state. These are the dangerous ones. Surface them too.
 
-For high-stakes work, load `epicontext-groups/references/strategy/methodologies/assumption-audit.md` and
+For high-stakes work, load `epicontext-strategy/references/methodologies/assumption-audit.md` and
 run the full workflow. For everything else, end your recommendation
 with: *"This assumes [X], [Y], [Z]. If any is wrong, the
 recommendation flips to [W]."*

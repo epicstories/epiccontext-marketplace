@@ -60,7 +60,7 @@ Call `get_org_context` before anything else:
 
 Detail, questions and the order to fill in:
 `references/kickoff/organisation-first.md`. Keep this step short — the brand
-workshop belongs to the brand group of `epicontext-groups`; the kickoff only makes the shared
+workshop belongs to the Brand expert (`epicontext-brand`); the kickoff only makes the shared
 anchors real enough that the project has something to inherit.
 
 ### Step 1 — Open with what the project is FOR (5 minutes)
@@ -96,7 +96,7 @@ person; then say so in the reason.
 > recent conversation with someone like them, that's gold."*
 
 If the user has interview/conversation material, hand off to
-`epicontext-groups/references/users/methodologies/research-synthesis.md`. Otherwise, draft the
+`epicontext-users/references/methodologies/research-synthesis.md`. Otherwise, draft the
 persona block live — but mark every claim as `hypothesis` until
 research backs it, and write the block at `assumed`.
 
@@ -117,7 +117,7 @@ fails.
 > enough yet."*
 
 This becomes the seed of `product_strategy_canvas`. Hand off to
-`epicontext-groups/references/strategy/methodologies/strategic-options.md` if the user has multiple candidate
+`epicontext-strategy/references/methodologies/strategic-options.md` if the user has multiple candidate
 bets to weigh.
 
 Quality bar before declaring this Block #2: a bet with named persona,
@@ -138,7 +138,7 @@ If the user proposes 5 features, force ranking: "Which one would you
 ship first if you could only ship one this month?"
 
 This becomes the seed of a `feature` block (or sharpens the existing
-`primary-feature` stub). Hand off to `epicontext-groups` (product) for the
+`primary-feature` stub). Hand off to `epicontext-product` for the
 feature shape.
 
 Quality bar before declaring this Block #3: feature with persona-
@@ -236,12 +236,12 @@ through the relevant step again.
 | After kickoff, the user typically wants… | Skill / methodology to hand off to |
 |---|---|
 | "Fill in the rest of the graph from the repo" | `references/fill/README.md` |
-| "I have interview notes; help me extract insights" | `epicontext-groups/references/users/methodologies/research-synthesis.md` |
-| "Help me think through positioning" | `epicontext-groups/references/brand/methodologies/positioning-workshop.md` |
-| "We're choosing between options" | `epicontext-groups/references/strategy/methodologies/strategic-options.md` |
+| "I have interview notes; help me extract insights" | `epicontext-users/references/methodologies/research-synthesis.md` |
+| "Help me think through positioning" | `epicontext-brand/references/methodologies/positioning-workshop.md` |
+| "We're choosing between options" | `epicontext-strategy/references/methodologies/strategic-options.md` |
 | "Audit what we have" | `references/alignment/README.md` |
-| "What's the project missing?" | `epicontext-analysis` |
-| "Ship a feature" | `epicontext-groups` (product) + `epicontext-frontend` + `epicontext-backend` |
+| "What's the project missing?" | the five-step analysis (`epicontext-core`) |
+| "Ship a feature" | `epicontext-product` + `epicontext-build` (frontend, backend) |
 
 Kickoff is the door; the entity skills + methodologies are the
 rooms. Don't try to be the whole house.

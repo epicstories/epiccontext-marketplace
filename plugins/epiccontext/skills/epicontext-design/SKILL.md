@@ -1,16 +1,10 @@
 ---
 name: epicontext-design
-description: >
-  Use to design, judge, iterate on or choose between UI/UX designs in an
-  EpicContext project: a screen, flow or component; a critique of a
-  screenshot, Figma frame or prototype ("beoordeel dit scherm", "welke
-  variant"); directions or a redesign; the /design canvas; the design
-  system and brandbook. Robert's standard: function with feeling,
-  measured before judged, landed in the graph.
+description: "Use to design, judge, iterate on or choose between UI/UX designs in an EpicContext project: a screen, flow or component; a critique of a screenshot, Figma frame or prototype ('beoordeel dit scherm', 'welke variant'); directions or a redesign; the /design canvas; the design system and brandbook. The Design expert, with Robert's standard; get_skill with project_id adds the project's design rules."
 metadata:
-  epic.requires: "component_spec,brand_visual_identity,tone_of_voice,persona"
+  epic.requires: "brand_asset,brand_moodboard,brand_visual_identity,component_spec,design_application,figma_embed,persona,storybook_link,tone_of_voice"
   epic.version: "1.0.0"
-  epic.contenthash: "8f9a85eb39a27ab8"
+  epic.contenthash: "18b8dee039eb9547"
 ---
 
 # Epic Context — Design
@@ -26,7 +20,7 @@ in a chat that ends.
 One skill for all design work: the judgment is this file, the mechanics
 (the `/design` canvas, the brandbook, anatomy, Figma) are in
 `references/canvas-and-brandbook.md`. Seed → design → **test** → land,
-before `epicontext-frontend` builds anything. It reads context from the
+before the Build expert (`epicontext-build`, frontend) builds anything. It reads context from the
 graph, never from assumption; it measures before it judges; and it says
 *no* with a principle number, never with taste. One round is a photo.
 The work is the loop.
@@ -241,7 +235,7 @@ nobody re-raises a recorded exception.
 
 Answer with the principle and the severity: "P3, major: hiding the filter on desktop
 halves its use (NN/g 2016)" lands; "I don't think it's right" doesn't. Evidence wins,
-through the principle's reverse clause. Feedback is **classified** first (`epicontext-analysis`),
+through the principle's reverse clause. Feedback is **classified** first (`epicontext-core/references/analysis/README.md`),
 never applied 1:1, and lands as a `feedback` entity: `references/saying-no-and-feedback.md`.
 
 ## Landing the round — step 9
@@ -292,8 +286,8 @@ An eval set with seeded defects and a no-skill baseline; a DESIGN.md export for 
 
 ## Pairs with
 
-`epicontext-frontend` (building it), `epicontext-analysis` (feedback), `epicontext-suite`
-(board, notes, hand-offs), `epicontext-groups` (design system, brand, users, performance),
+`epicontext-build` (building it), the five-step analysis in `epicontext-core` (feedback), `epicontext-suite`
+(board, notes, hand-offs), `epicontext-brand`, `epicontext-users`, `epicontext-performance` (the other experts),
 `epicontext-boards` (the case on FigJam or Miro), `epicontext-core` (read, then write).
 
 Respond in the language the user writes in; principle numbers, stands and

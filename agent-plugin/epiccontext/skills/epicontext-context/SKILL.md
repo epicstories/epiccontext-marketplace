@@ -9,7 +9,7 @@ description: >
 metadata:
   epic.requires: ""
   epic.version: "1.0.0"
-  epic.contenthash: "f6b9dfcf64543c5a"
+  epic.contenthash: "5506e5d5c9f2c368"
 ---
 
 # Epic Context — Making and keeping the brain right
@@ -18,7 +18,7 @@ The graph is only worth reading when it is **real, connected and current**.
 This skill holds the five jobs that make it so: the kickoff of a fresh
 project, the fill pass, the alignment-and-repair pass, the connection rules,
 and the constitution (the rules, terms and section guides that bind the rest).
-What each entity should *say* is in `epicontext-groups`; this skill is about
+What each entity should *say* is in its expert (`epicontext-brand` … `epicontext-performance`); this skill is about
 the whole graph at once.
 
 Every path below is inside this skill's folder. For `get_skill`, put
@@ -135,7 +135,7 @@ in `references/fill/README.md` and `references/alignment/README.md`.
 
 ## Pairs with
 
-`epicontext-core` (always), `epicontext-groups` (what each entity should
-say and its depth bar), `epicontext-analysis` (when a finding is a tension
+`epicontext-core` (always), the experts (what each entity should
+say and its depth bar), the five-step analysis in `epicontext-core` (when a finding is a tension
 to weigh rather than a break to fix), `epicontext-suite` (where what is left
 for people goes).

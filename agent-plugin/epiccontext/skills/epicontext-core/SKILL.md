@@ -9,7 +9,7 @@ description: >
 metadata:
   epic.requires: ""
   epic.version: "1.0.0"
-  epic.contenthash: "7cf32128730138d2"
+  epic.contenthash: "223a9f0311dd4cda"
 ---
 
 # EpicContext — Core Rules
@@ -66,9 +66,11 @@ graph is missing. Same input, same briefing.
 get_briefing(task_type: "ui-component", target: "Table component", task: "add row selection")
 ```
 
-Task types: `ui-component`, `ui-page`, `content`, `strategy`,
-`research`, `build-backend`, `org-setup`, `general`. Keep the `briefing_id` it
-returns. A block named in your task is found by name or alias ("Table
+Task types: `ui-component`, `ui-page`, `content`, `strategy`, `research`,
+`product`, `marketing`, `performance`, `build-backend`, `org-setup`,
+`general`. Keep the `briefing_id` it returns. The briefing names the
+**expert** for the task: load it with `get_skill("<expert>", project_id)`
+before you write — its method, then what this project already knows. A block named in your task is found by name or alias ("Table
 component" finds Table). For the whole picture, `get_book`. A required
 slot reported missing means the graph does not know — say so, never fill
 the gap from general knowledge.
@@ -87,17 +89,15 @@ ingest_text(text, source: "transcript")      // bulk material
 save_rule(rule) / log_learning(learning)     // no briefing needed
 ```
 
-**Pass the `briefing_id`.** Core blocks (the canonical entities) expect a
-recent briefing: the server warns, or in projects that enforce it
-refuses, and names the exact `get_briefing` call to make. **A rule or a
-learning goes to `save_rule` / `log_learning`, never to a local memory
-file** — one call, free text, it lands as an assumption every co-worker's
-session can find.
+**Pass the `briefing_id`.** Core blocks expect a recent briefing *of their
+expert*: the server warns, or in projects that enforce it refuses, and
+names the `get_briefing` call to make. **A rule or a learning goes to
+`save_rule` / `log_learning` with its `expert`, never to a local memory
+file** — it grows that expert's knowledge of this project.
 
-**Always pass a `reason`.** One or two sentences on why you made the change. It is
-recorded on the version snapshot and shown in the project's changes feed
-(`/<org>/<project>/changes`) beside the diff — it is what a human reads when deciding
-whether to keep your edit. A change with no reason is a change someone has to reverse-engineer.
+**Always pass a `reason`.** One or two sentences on why: it is shown in the
+changes feed (`/<org>/<project>/changes`) beside the diff, and it is what a
+human reads when deciding whether to keep your edit.
 
 A bulk `ingest_text` run shares one `change_batch_id`, so the whole
 ingest reverts in a single action. (What replaced the old queue's
@@ -113,8 +113,7 @@ which is enforced, rather than behind a convention, which is not.
 rejected at the boundary with `validation_issues` — fix and retry rather
 than working around it.
 
-**Every write result carries a `url`** — the book page. Open it in your
-browser pane beside the chat, like an artifact; no browser → give the url.
+**Every write result carries a `url`**: open it beside the chat; no browser → give it.
 
 ### Step 4 — CONNECT (links are the brain)
 
@@ -131,9 +130,8 @@ Every write must leave the graph more connected, not less.
   features they benefit from.
 - **Repair dangling refs** when you delete or rename a block — scan
   inbound refs and re-point.
-- **Refresh, don't replace** on `update_block` — partial-merge
-  (`fields:`) preserves existing `_ref` fields; full `value:` rewrites
-  them.
+- **Refresh, don't replace** on `update_block` — `fields:` keeps the
+  existing `_ref` fields; a full `value:` rewrites them.
 - **Say what a link means** with `link_blocks`: `supports` (evidence),
   `supersedes` (replaces — the old block stays as history), `contradicts`,
   `governs`, `decides`, `implements`, `derived_from`. Never overwrite what
@@ -262,9 +260,7 @@ When you build something new, the mandate tells you what else you now
 owe: a new route owes a page block AND a page-layer spec; new UI owes a
 spec that names its parts; a new journey owes its steps' pages.
 
-## Pointer table — where the detail lives
-
-Load these only for that specific work — not all at session start.
+## Pointer table — where the detail lives — load only for that work
 
 | Working on… | Reference |
 |---|---|
@@ -291,9 +287,13 @@ Load these only for that specific work — not all at session start.
 
 ## Which skill for what
 
-The entities: `epicontext-groups` (one reference per group). Kickoff, fill,
-repair, edges, rules: `epicontext-context`. **Anything about design** — judge,
-critique, choose, make — `epicontext-design`, always. All nine: `references/skill-map.md`.
+Two kinds (ADR-072). **How to work with Epic Context:** this skill,
+`epicontext-suite`, `epicontext-context` (kickoff, fill, repair, edges,
+rules) and `epicontext-boards`. **The experts**, one per group: `-brand`,
+`-strategy`, `-users`, `-product`, `-design`, `-build`, `-marketing`,
+`-performance` (entity → reference: `references/experts.md`). The task picks
+the expert; **design is always `epicontext-design`**. A signal to classify:
+`references/analysis/README.md`. All twelve: `references/skill-map.md`.
 
 ## When the graph is missing or wrong
 

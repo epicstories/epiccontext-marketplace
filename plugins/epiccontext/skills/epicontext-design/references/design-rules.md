@@ -1,7 +1,11 @@
 # The project's design rules — step 2
 
 Every project records, once, in its Design group — a `document` in the
-Guidelines chapter, linked from the `design_system` overview:
+Guidelines chapter, linked from the `design_system` overview. It is the
+**Design expertise** of the project (ADR-072): `get_skill("epicontext-design",
+project_id)` serves it under the method, and `save_rule` / `log_learning` with
+`expert: "design"` add to it. The organisation's design rules come first; a
+project differs from them with a reason.
 
 - **Experience sentence** — the feeling and outcome the product is for, in one line (P1).
 - **Slider stand** — one of five, with the reason (P2):

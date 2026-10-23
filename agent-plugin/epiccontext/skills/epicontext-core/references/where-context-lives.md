@@ -63,11 +63,11 @@ Content that is consequential to change silently belongs behind a lock:
 
 - **`legal`** (Build group) — legal context is supposed to be slow to
   change; counsel-reviewed text should be locked (see
-  `epicontext-groups/references/build/entities/legal.md`).
+  `epicontext-build/references/entities/legal.md`).
 - **`research`** (Users group) — research is the source layer that
   personas, JTBDs, and insights cite; silent updates leave downstream
   entities making claims against changed evidence (see
-  `epicontext-groups/references/users/entities/research.md`).
+  `epicontext-users/references/entities/research.md`).
 
 If one of these is not locked, you may write it — but say exactly what
 you changed and why in the `reason`, and mention it in your receipt so
