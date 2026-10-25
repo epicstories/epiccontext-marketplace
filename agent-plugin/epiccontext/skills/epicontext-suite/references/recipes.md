@@ -20,6 +20,11 @@ is a card for that person, and you give the `url` of what you wrote.
 4. Say what landed: the note, the blocks (the batch, to undo in one action),
    the cards.
 
+**Recorded with Capture?** Then Capture already did these steps: the
+transcript is in Notes, the actions are cards, the decisions are in Context
+(`assumed`, each with its quote), and what its editor doubted waits on a
+review card. Read what it left; don't ingest the same meeting again.
+
 ## Research
 
 1. **Look first**: what the brain holds on the subject — research,
@@ -72,6 +77,20 @@ person approves. Its source is Context.
    (kind `approval`) to the brand's person.
 3. Never post yourself. What was published comes back as a `content_piece`,
    what was learned as a `customer_insight`.
+
+## A picture or a reel
+
+Epic Content makes them, in a format per network, from the organisation's
+own templates and the brand in Context. Only the organisation's members see
+it, and only their own templates.
+
+1. Keep the source right: the tone of voice, the visual identity and the
+   design system in Context. A render takes its colours and fonts from there.
+2. Never render yourself. Social asks Content for the picture or reel once a
+   post is chosen; a product's own site asks with its own key.
+3. A template the organisation does not have yet is work for a person:
+   `hand_off` it to the member the user names, with what it should show and
+   in which formats.
 
 ## A user test
 

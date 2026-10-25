@@ -9,15 +9,15 @@ description: >
 metadata:
   epic.requires: ""
   epic.version: "1.0.0"
-  epic.contenthash: "de2baffb57834d5f"
+  epic.contenthash: "d6c599a6725f3dfb"
 ---
 
 # Epic Context — Working in the Epic Suite
 
 Epic Context is the brain of a suite of tools — Kanban, Notes,
 Notifications, Analytics, Social, User, Prototype, CRM and more — and the
-one connection an agent needs to reach all of them. You don't learn sixteen
-tools: you learn where each kind of thing goes, and one verb for each.
+one connection an agent needs to reach all of them. You don't learn every
+tool: you learn where each kind of thing goes, and one verb for each.
 
 Every path below is inside this skill's folder. For `get_skill`, put
 `epicontext-suite/` in front and drop `.md`.
@@ -89,8 +89,10 @@ product or tool) inherits those blocks and reads them as its own, marked
 | Tool | Use it for |
 |---|---|
 | Context | What is true. Read before you work (`get_briefing`), write back with a reason. |
+| Design | The design system as a working thing; its rules and specs are the Design group in Context (`get_briefing`, `ui-component`). |
 | Kanban | The planning: your plan (`share_plan`) and what is left for people (`hand_off`). |
 | Notes | What you wrote along the way (`write_note`); what turns out true goes to Context too. |
+| Capture | Meetings into the brain: decisions, cards and the transcript, each with its quote. Never record yourself; read what a meeting left. |
 | Notifications | What someone must know but not do (`notify`). Tools never e-mail the team. |
 | Dashboard | Each person's day; it shows what you plan and hand off — nothing to call. |
 | Analytics | Numbers from site, search and campaigns — read them in the graph before you judge a change. |
@@ -99,7 +101,7 @@ product or tool) inherits those blocks and reads them as its own, marked
 | Prototype | The running app of a workspace and who may open it — point reviews and Epic User runs at it. |
 | User | Synthetic user tests on the prototype; findings come back as `customer_insight` (assumed). |
 | Social | The one publishing channel; its source is `content_piece` and tone of voice in Context — never post yourself. |
-| Content | Visuals and reels in the house style, made from the brand in Context. |
+| Content | Pictures and reels from the organisation's own templates, in the brand from Context. Never render yourself: Social asks once a post is chosen. |
 | CRM | Contacts, companies, deals — customer facts belong there, not in Context; a follow-up is a `hand_off` card. |
 | Mail, Calendar, AI-Chat | People's mailboxes, agendas and conversations — not for an agent's output; a date goes on a card (`due`). |
 
@@ -111,11 +113,12 @@ Without the suite, plans, notes and hand-offs are kept in Epic Context and
 
 | The work | The moves (full: `references/recipes.md`) |
 |---|---|
-| A meeting, a transcript | `write_note` (the raw notes) → `ingest_text` (decisions and insights, one revertible batch; a decision as `assumed`, with the literal quote) → `hand_off` (every action to its owner) |
+| A meeting, a transcript | `write_note` (the raw notes) → `ingest_text` (decisions and insights, one revertible batch; a decision as `assumed`, with the literal quote) → `hand_off` (every action to its owner). Recorded with Capture: it did this already — read what it left |
 | Research | Look first → brief the agents with what the brain holds → land findings as blocks with their sources (`assumed`) → notes to `write_note` |
 | A build | `share_plan` (key: the branch) → keep it current → at the end final statuses, `hand_off` what is left, the session log to `write_note` |
 | A design explained in Figma | `get_context_card` per persona / journey / feature, placed as is and linked — `epicontext-design/references/context-cards.md`; on a board, `epicontext-boards` |
 | A social post | Write or update the `content_piece` (campaign, channel, tone of voice) in Context; Epic Social publishes after a person approves |
+| A picture or a reel | Keep the brand and design system right in Context; Content makes it from the organisation's own template once Social chooses a post. A new template: `hand_off` |
 | A user test | Ask for an Epic User run with `hand_off`; read the `customer_insight` blocks it writes back before you judge the flow |
 | The running app, who may open it | The Prototype tool: per workspace its address, the Epic Context sign-in gate and a shared password, on the tool's own page |
 | A feature → stories, tasks | Cards on the board: `references/feature-to-work.md` |

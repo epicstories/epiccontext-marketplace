@@ -5,8 +5,8 @@
 
 Epic Context is the brain of a suite of tools: Kanban, Notes,
 Notifications, Analytics, Social and more. You reach all of them through
-this one connection; you never need another. You don't learn sixteen
-tools — you learn where each kind of thing goes, and one verb for each.
+this one connection; you never need another. You don't learn every
+tool — you learn where each kind of thing goes, and one verb for each.
 
 ## Five places, five verbs
 
