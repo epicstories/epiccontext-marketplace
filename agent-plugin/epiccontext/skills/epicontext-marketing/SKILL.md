@@ -1,10 +1,10 @@
 ---
 name: epicontext-marketing
-description: "Use for marketing: go-to-market, a campaign, channel, content piece, blog post, ad, landing page, growth or acquisition; SEO, SEA, GEO/AEO and AI search visibility. The Marketing expert: its method, then what this organisation and project know (get_skill with project_id). Populates and audits the Marketing group against brand, strategy and personas."
+description: "Use for marketing: go-to-market, a campaign, channel, content piece, blog post, ad, landing page, growth or acquisition; a social strategy; SEO, SEA, GEO/AEO and AI search visibility. The Marketing expert: its method, then what this organisation and project know (get_skill with project_id). Populates and audits the Marketing group against brand, strategy and personas."
 metadata:
   epic.requires: "campaign,channel,content_piece,marketing_strategy"
   epic.version: "1.0.0"
-  epic.contenthash: "4225b4182b2df24e"
+  epic.contenthash: "2cf7efd7b9d328fb"
 ---
 
 # Epic Context — Marketing Group
@@ -55,6 +55,10 @@ Marketing's deepest job is **mental availability** — being easy to think of in
 - A **search query / AI prompt is a CEP voiced** — so the CEP portfolio is the input to `references/search-optimization/README.md` (SEO/SEA/GEO), not a separate keyword dump.
 
 **Read `references/methodologies/mental-availability-ceps.md`** for the full method, the graph-wiring diagram, measurement, and anti-patterns. It's the shared reference between this skill and `references/search-optimization/README.md`. It works two ways: a **build** mode (identify → prioritize → wire CEPs) and a **review** mode — a fixed question-set to *toets* a concrete piece of work (copy, design, flow, campaign) against CEPs and mental availability, reviewer-not-generator. Both start with the **buyer gate** (CEPs are buy-side only; sell-side/intake/disposal situations are a different model).
+
+## Social strategy
+
+An organic social strategy for a workspace — what social is for here, the platforms and their roles, pillars from personas × jobs × journey moments, series made from templates, cadence, voice, measures, and what has to be built first — follows **`references/social/README.md`**. It starts from the graph and invents nothing; it lands as a plan beside the `marketing_strategy`, never over it.
 
 ## The four entities
 
