@@ -39,6 +39,7 @@ under-delivers, even when the prose is good.
 | Something another block already says well | an embed | `~~~embed` |
 | Brand colours | swatches | `~~~palette` |
 | Typefaces | a specimen | `~~~type` |
+| Space, radius, borders, shadows, type sizes, motion | the scale, drawn | `~~~scale` |
 | A logo, pattern, icon set or example of the brand in use | pictures | `~~~gallery` |
 | What to do and not to do with an asset | a do / don't pair | `~~~dodont` |
 | How the project's Design pages should look | the theme | `~~~theme` (visual identity only) |
@@ -419,7 +420,7 @@ That is the whole difference between an embed and a paste.
 
 The Design group is a brandbook as well as a design system. Its pages
 read as pictures: swatches, specimens, the logo on its grounds, crossed-
-out misuses. Five fences draw them. Values are YAML; anything the book
+out misuses. Six fences draw them. Values are YAML; anything the book
 cannot use (a colour that is not a hex, an image url that is not https
 or a site path) is reported under the figure and left out.
 
@@ -454,6 +455,23 @@ dont:
   - { text: Rotate or stretch the logo, src: /brand/logo-rotated.png }
 ~~~
 
+~~~scale
+kind: space               # space, size, radius, border, shadow, type or motion
+title: Space
+description: "4-based: every padding, gap and margin is one of these."
+steps:
+  - { name: space-2, value: 8px, note: "icon to label" }
+  - { name: space-4, value: 16px, note: "inside a card" }
+  - { name: gutter, value: "clamp(1rem, 4vw, 2rem)" }
+~~~
+
+~~~scale
+kind: motion
+easing: "cubic-bezier(0.2, 0, 0, 1)"
+steps:
+  - { name: duration, value: 150ms, note: "hover, open, close" }
+~~~
+
 ~~~theme
 background: "#fff7ee"     # the Design pages' ground
 surface: "#ffffff"        # cards and panels
@@ -471,6 +489,11 @@ Rules:
 - **The theme lives in the visual identity** and dresses only the Design
   group. Ink below WCAG AA on the background or surface is refused —
   the pages stay neutral and the figure says why. Never write CSS.
+- **A scale is drawn as what it does:** space and sizes as bars, borders
+  as lines, radii as corners, shadows as raised cards, type at its size,
+  motion as a moving dot. A value the book cannot draw safely (anything
+  but a length, a shadow or a duration) is reported and left out. Write
+  the real values from the code, never invented ones.
 - **Images go in with `upload_asset`** (SVG as text, PNG/JPG/WebP/GIF/
   AVIF as base64); use the url it returns. SVG where you have it — it
   stays sharp at every size.

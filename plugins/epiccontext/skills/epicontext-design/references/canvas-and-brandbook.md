@@ -19,7 +19,7 @@ not. Fill them; the suite's Design tool draws each one as it looks — component
 
 | Chapter | Write | As |
 |---|---|---|
-| Foundations | Colours with roles, type, space/grid, shape, motion, layering | the `brand_visual_identity` body: `~~~palette`, `~~~type`, `~~~theme` |
+| Foundations | Colours with roles, type, space/grid, shape, motion, layering | the `brand_visual_identity` body: `~~~palette`, `~~~type`, `~~~scale` (space, radius, borders, shadows, type sizes, motion), `~~~theme` |
 | Brand assets | Logo + colour versions, clear space, min size, don'ts, lock-ups, name spelling, slogan, patterns, icons, illustration and photo style | one `brand_asset` per asset: `~~~gallery` + `~~~dodont` |
 | Components | One spec per part, with **Anatomy & specs** | `component_spec` (see below) |
 | Guidelines | Writing for the UI, accessibility, layout, do's and don'ts | `document` blocks |
