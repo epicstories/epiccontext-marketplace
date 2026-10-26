@@ -1,7 +1,7 @@
 {
-  "version": "0.1.22",
+  "version": "0.1.23",
   "mcp_url": "https://www.epiccontext.com/api/mcp",
-  "library_hash": "cf1d4b1eb8a6550d",
+  "library_hash": "579a4eef90908b3e",
   "skills": [
     {
       "name": "epicontext-boards",
@@ -52,13 +52,13 @@
     {
       "name": "epicontext-core",
       "version": "1.0.0",
-      "contenthash": "92fb6a9220996fbd",
+      "contenthash": "206e7d2aa8d854bc",
       "requires": []
     },
     {
       "name": "epicontext-design",
       "version": "1.0.0",
-      "contenthash": "f6764238904c13c3",
+      "contenthash": "2da1e55fa0fd032f",
       "requires": [
         "brand_asset",
         "brand_moodboard",

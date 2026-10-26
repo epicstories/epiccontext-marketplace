@@ -4,7 +4,7 @@ description: "Use to design, judge, iterate on or choose between UI/UX designs i
 metadata:
   epic.requires: "brand_asset,brand_moodboard,brand_visual_identity,component_spec,design_application,figma_embed,persona,storybook_link,tone_of_voice"
   epic.version: "1.0.0"
-  epic.contenthash: "f6764238904c13c3"
+  epic.contenthash: "2da1e55fa0fd032f"
 ---
 
 # Epic Context — Design

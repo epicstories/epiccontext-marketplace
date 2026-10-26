@@ -28,6 +28,12 @@ not. Fill them; the suite's Design tool draws each one as it looks — component
 - **Theme the Design pages** with `~~~theme` in the visual identity:
   background, surface, ink, accent, heading/body font, a cover image.
   Ink must reach 4.5:1 or the pages stay neutral. Never write CSS.
+- **Give the brand its own twist** in the same fence: `brand_ground` (the
+  cover's colour), `chapter_grounds` (one colour per chapter, in order) and
+  `element` (a brand element: a pattern, a shape or the mark, uploaded with
+  `upload_asset`). Each ground carries ink or white in AA or it is left out.
+  Bolder chapter grounds make it read as a brandbook; keep them to the
+  palette.
 - **Upload the images** with `upload_asset` (people use "Add an asset"
   in the book) — logos, patterns, icons, photos, examples. SVG where you
   have it.

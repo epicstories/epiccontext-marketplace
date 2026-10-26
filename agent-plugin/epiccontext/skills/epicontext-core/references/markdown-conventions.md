@@ -481,6 +481,9 @@ heading_font: Space Grotesk
 body_font: Inter
 fonts: google
 cover: /brand/pattern.svg # the Design cover's image
+brand_ground: "#c8e600"   # the Design tool's cover, in the brand's colour
+chapter_grounds: ["#005555", "#c8e600", "#fff7ee", "#005555", "#c8e600"]  # one per chapter, in order
+element: /brand/mark.svg  # a brand element on the cover and every chapter's opener
 ~~~
 ~~~~
 
@@ -489,6 +492,12 @@ Rules:
 - **The theme lives in the visual identity** and dresses only the Design
   group. Ink below WCAG AA on the background or surface is refused —
   the pages stay neutral and the figure says why. Never write CSS.
+- **The brand's own twist in the Design tool:** `brand_ground` gives the
+  cover its colour (the logo large, the name in the heading font, the
+  `element` beside it); `chapter_grounds` opens each chapter (Foundations,
+  Brand assets, Components, Guidelines, Applications) on its own colour,
+  with its number. Each ground must carry the ink or white at 4.5:1, or it
+  is left out and the theme says why. Take the colours from the palette.
 - **A scale is drawn as what it does:** space and sizes as bars, borders
   as lines, radii as corners, shadows as raised cards, type at its size,
   motion as a moving dot. A value the book cannot draw safely (anything
