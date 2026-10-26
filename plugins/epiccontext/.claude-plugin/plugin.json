@@ -1,7 +1,7 @@
 {
   "name": "epiccontext",
   "displayName": "Epic Context",
-  "version": "0.1.24",
+  "version": "0.1.25",
   "description": "Epic Context in every session: the skills that say how to work with your product context, and hooks that make the agent read it — through your Epic Context connector — before it changes UI.",
   "author": {
     "name": "Epic Stories BV",
@@ -16,6 +16,6 @@
     "mcp"
   ],
   "metadata": {
-    "library_hash": "64f08f2e7f7c8715"
+    "library_hash": "a9987f7b8841a170"
   }
 }
