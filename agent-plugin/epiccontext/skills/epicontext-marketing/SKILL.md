@@ -1,6 +1,6 @@
 ---
 name: epicontext-marketing
-description: "Use for marketing: go-to-market, a campaign, channel, content piece, blog post, ad, landing page, growth or acquisition; a social strategy; SEO, SEA, GEO/AEO and AI search visibility. The Marketing expert: its method, then what this organisation and project know (get_skill with project_id). Populates and audits the Marketing group against brand, strategy and personas."
+description: "Use for marketing: go-to-market, a campaign, channel, content piece, blog post, ad, landing page, growth or acquisition; social and LinkedIn, posts and ads; SEO, SEA, GEO/AEO and AI search. The Marketing expert: its method and specialist skills, then what this organisation and project know (get_skill with project_id). Populates and audits the Marketing group against brand, strategy and personas."
 metadata:
   epic.requires: "campaign,channel,content_piece,marketing_strategy"
   epic.version: "1.0.0"
@@ -17,6 +17,7 @@ That is the skill itself: the method as it stands today, with the edits made in 
 
 - **The project id** is in the repo's `.epicontext`, in the session start, or in `list_projects`. Without a project, leave it out.
 - **A reference the skill names** (`references/<file>.md`) loads the same way: `get_skill(name: "epicontext-marketing/references/<file>")`.
+- **Its specialist skills** — one craft each, such as `linkedin-ads`, `linkedin-posts`, `sea`, `search-optimization`, `seo`, `social-strategy` — load the same way, by name: `get_skill(name: "linkedin-ads")`. The method lists them all; the briefing names the one a task needs.
 - **Never work from memory or from a copy on disk** (an older plugin, a `.claude/skills` folder): it lacks both.
 
 If the Epic Context tools are not in this session, tell the person to connect the Epic Context connector (Settings → Connectors) and sign in.
