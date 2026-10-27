@@ -1,7 +1,7 @@
 {
   "name": "epiccontext",
   "displayName": "Epic Context",
-  "version": "0.1.26",
+  "version": "0.1.27",
   "description": "Epic Context in every session: the skills that say how to work with your product context, and hooks that make the agent read it — through your Epic Context connector — before it changes UI.",
   "author": {
     "name": "Epic Stories BV",

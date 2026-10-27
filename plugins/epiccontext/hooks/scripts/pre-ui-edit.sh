@@ -20,7 +20,17 @@ session="$(ec_input_field session_id)"
 # Without a session id there is nothing to remember the hold by, so there
 # is no hold: never trap a session, never share a marker between sessions.
 [ -n "$session" ] || exit 0
-[ -f "$(ec_marker briefed "$session")" ] && exit 0
+if [ -f "$(ec_marker briefed "$session")" ]; then
+  # Briefed: the design skill itself from Epic Context, once, before the first UI edit
+  # (feedback from a design session, 26 October 2026: "Maak er een poort van, geen advies").
+  [ -f "$(ec_marker designed "$session")" ] && exit 0
+  held_design="$(ec_marker held-design "$session")"
+  [ -f "$held_design" ] && exit 0
+  touch "$held_design" 2>/dev/null || true
+  reason="$(printf 'Epic Context: you have the briefing; now load the design skill before this UI edit — get_skill(name: "epicontext-design", project_id: "%s") through the Epic Context connector, its method and this project'"'"'s design rules. Then make the edit again, and name the principle behind each change. If the Epic Context tools are not available in this session, say so to the user and retry the edit; it will go through.' "$EC_PROJECT" | ec_json_string)" || exit 0
+  printf '{"hookSpecificOutput":{"hookEventName":"PreToolUse","permissionDecision":"deny","permissionDecisionReason":%s}}\n' "$reason"
+  exit 0
+fi
 
 held="$(ec_marker held "$session")"
 if [ -f "$held" ]; then

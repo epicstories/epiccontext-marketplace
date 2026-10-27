@@ -55,6 +55,15 @@
         ]
       },
       {
+        "matcher": "mcp__.*__get_skill",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"${CLAUDE_PLUGIN_ROOT}\"/hooks/scripts/record-skill.sh"
+          }
+        ]
+      },
+      {
         "matcher": "mcp__.*__(create_block|update_block|override_block|upload_asset|share_plan|write_note|call_tool_action|get_briefing)",
         "hooks": [
           {
