@@ -1,6 +1,6 @@
 ---
 name: epicontext-suite
-description: "Use when work touches the Epic Suite or leaves something behind: a plan (share_plan), a hand-off, notes, a notification; which tool is for what (Kanban, Notes, Social, User, Prototype, CRM, Research, Analytics…); the organisation's shared context vs a workspace; a meeting or transcript; research; a feature turned into stories, tasks and cards."
+description: "Use when work touches the Epic Suite or leaves something behind: a plan (share_plan), a hand-off, notes, a notification; which tool is for what (Kanban, Notes, Design and its prototype, Social, User, CRM, Research…); the organisation's shared context vs a workspace; a meeting or transcript; research; a feature turned into stories, tasks and cards."
 metadata:
   epic.requires: ""
   epic.version: "1.0.0"
