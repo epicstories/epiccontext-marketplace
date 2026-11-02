@@ -1,7 +1,7 @@
 {
-  "version": "0.1.35",
+  "version": "0.1.36",
   "mcp_url": "https://www.epiccontext.com/api/mcp",
-  "library_hash": "e5b06ac4aa644e87",
+  "library_hash": "1d87de8d60d0148d",
   "skills": [
     {
       "name": "epicontext-boards",
@@ -58,7 +58,7 @@
     {
       "name": "epicontext-design",
       "version": "1.0.0",
-      "contenthash": "eb60d8bbf4afd5f4",
+      "contenthash": "bed70f034a16fd6a",
       "requires": [
         "brand_asset",
         "brand_moodboard",
