@@ -1,7 +1,7 @@
 {
-  "version": "0.1.38",
+  "version": "0.1.39",
   "mcp_url": "https://www.epiccontext.com/api/mcp",
-  "library_hash": "c0825b9d9d708693",
+  "library_hash": "d34226ef4e59bb61",
   "skills": [
     {
       "name": "epicontext-boards",
@@ -23,7 +23,7 @@
     {
       "name": "epicontext-build",
       "version": "1.0.0",
-      "contenthash": "38276118bcfbd9a7",
+      "contenthash": "a6b2a241008a5436",
       "requires": [
         "api_endpoint",
         "api_spec",
@@ -85,7 +85,7 @@
     {
       "name": "epicontext-performance",
       "version": "1.0.0",
-      "contenthash": "d6bc681b16be8460",
+      "contenthash": "068e4446b31d8343",
       "requires": [
         "analytics_event",
         "feedback",
@@ -112,7 +112,7 @@
     {
       "name": "epicontext-strategy",
       "version": "1.0.0",
-      "contenthash": "099a1372a847389c",
+      "contenthash": "87418ace0698e2ec",
       "requires": [
         "business_case",
         "business_model_canvas",

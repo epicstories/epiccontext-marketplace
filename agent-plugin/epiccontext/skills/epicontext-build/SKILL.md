@@ -17,7 +17,7 @@ That is the skill itself: the method as it stands today, with the edits made in 
 
 - **The project id** is in the repo's `.epicontext`, in the session start, or in `list_projects`. Without a project, leave it out.
 - **A reference the skill names** (`references/<file>.md`) loads the same way: `get_skill(name: "epicontext-build/references/<file>")`.
-- **Its specialist skills** — one craft each, such as `api-design`, `code-review`, `explore-build`, `git-commits`, `grill-build`, `mcp-builder`, `postgres-best-practices`, `react-best-practices`, `security-hardening`, `systematic-debugging`, `test-driven-development`, `verification-before-completion`, `web-accessibility`, `webapp-testing` — load the same way, by name: `get_skill(name: "api-design")`. The method lists them all; the briefing names the one a task needs.
+- **Its specialist skills** — one craft each: `api-design`, `code-review`, `explore-build`, `git-commits`, `grill-build`, `mcp-builder`, `postgres-best-practices`, `react-best-practices`, `security-hardening`, `systematic-debugging`, `test-driven-development`, `verification-before-completion`, `web-accessibility`, `webapp-testing` — load the same way, by name: `get_skill(name: "api-design")`. The method lists them all; the briefing names the one a task needs.
 - **Never work from memory or from a copy on disk** (an older plugin, a `.claude/skills` folder): it lacks both.
 
 If the Epic Context tools are not in this session, tell the person to connect the Epic Context connector (Settings → Connectors) and sign in.

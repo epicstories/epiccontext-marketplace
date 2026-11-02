@@ -44,7 +44,7 @@ for (let i = entries.length - 1; i >= 0; i--) {
   if (isPrompt(e)) break;
   if (e.type === "assistant") text = blocks(e).filter((b) => b.type === "text").map((b) => b.text).join("\n") + "\n" + text;
 }
-const NOT_A_NAME = new Set("This That These Those It The A An Each Every Everyone Everybody Someone Somebody Nobody One You We They He She Who What Which Here There Then Now Also And But Or If When Het Dit Dat Die Deze Je Jij U Wij We Ze Iemand Iedereen Elke Elk Er Hier Daar Claude Epic Context Design Kanban Notes Notifications Social Content Capture Coolify GitHub Prisma Next Docker Traefik Dashboard Prototype Chat Mail Calendar Research Analytics Processes Work User Users CRM Suite Plugin Settings".split(" "));
+const NOT_A_NAME = new Set("This That These Those It The A An Each Every Everyone Everybody Someone Somebody Nobody One You We They He She Who What Which Here There Then Now Also And But Or If When Het Dit Dat Die Deze Je Jij U Wij We Ze Iemand Iedereen Elke Elk Er Hier Daar Claude Epic Context Brain Design Kanban Notes Notifications Social Content Capture Coolify GitHub Prisma Next Docker Traefik Dashboard Prototype Chat Mail Calendar Research Analytics Processes Work User Users CRM Suite Plugin Settings".split(" "));
 const names = new Set();
 const add = (n) => { if (n && !NOT_A_NAME.has(n)) names.add(n); };
 for (const m of text.matchAll(/(?:^|[\s(>*_-])(?:For|Voor|Aan)\s+\**([A-Z][a-z\u00e0-\u00ff]+)\**\s*:/g)) add(m[1]);

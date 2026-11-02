@@ -132,8 +132,8 @@ if [ -n "$unlanded" ]; then
   reason="$reason
 
 SESSION OUTPUT not landed: this session produced ${unlanded}, and no graph write happened. A plan or report that lives only in chat, an artifact, or a repo file is invisible to your co-workers' sessions — that is the collaboration failure EpicContext exists to prevent.
-1. Write the deliverable to the graph: create_block / update_block / ingest_text with a reason (a review or plan lands as a research_data report, a choice as a decision).
-2. If the MCP write gate refuses, record the write verbatim in docs/plans/2026-08-24-pending-graph-updates.md so the next session can land it."
+1. Write the deliverable to the graph: create_block / update_block / ingest_text with a reason (a plan goes on the board with share_plan and, when it is worth keeping, into a document of category plan; a review or audit lands as a document; a choice as a decision).
+2. If a write is refused (a lock, the write gate), say so and put the content in your reply, so a person can land it."
 fi
 
 reason="$reason
