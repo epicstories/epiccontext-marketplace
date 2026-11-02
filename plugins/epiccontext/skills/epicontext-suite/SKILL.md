@@ -1,13 +1,13 @@
 ---
 name: epicontext-suite
-description: "Use when work touches the Epic Suite or leaves something behind: a plan (share_plan), a hand-off, notes, a notification; which tool is for what (Kanban, Notes, Design and its prototype, Social, User, CRM, Research…); the organisation's shared context vs a workspace; a meeting or transcript; research; a feature turned into stories, tasks and cards."
+description: "Use when work touches the Epic Suite or leaves something behind: a plan (share_plan), a hand-off, notes, a notification, an editors' proposal card; which tool is for what (Kanban, Notes, Design, Social, User, CRM, Research…); the organisation's shared context vs a workspace; a meeting or transcript; research; a feature turned into stories, tasks and cards."
 metadata:
   epic.requires: ""
   epic.version: "1.0.0"
   epic.served: "get_skill"
 ---
 
-# Epic Context — Working in the Epic Suite
+# Suite — Where does each thing go?
 
 This skill is served by Epic Context. Before anything else for this task, load it there, through the Epic Context connector:
 

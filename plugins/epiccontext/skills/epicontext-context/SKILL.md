@@ -1,13 +1,13 @@
 ---
 name: epicontext-context
-description: "Use to make and keep the brain right: a fresh project or empty organisation (\"where do I start?\", \"I just signed up\"), \"fill in / populate the context\", a health check or audit before a release, orphans, broken _ref links, stubs, graph-vs-repo drift, the edges a block needs, glossary terms, section guides and project rules. Writes the fixes with a reason."
+description: "Use to make and keep the brain right: a fresh project or empty organisation (\"where do I start?\"), \"fill in the context\", a health check or audit, what the brain's editors found, orphans, broken _ref links, stubs, graph-vs-repo drift, the edges a block needs, glossary terms, section guides and project rules. Brain care: the editors first, then the fixes, each written with a reason."
 metadata:
   epic.requires: ""
   epic.version: "1.0.0"
   epic.served: "get_skill"
 ---
 
-# Epic Context — Making and keeping the brain right
+# Brain care — Is the brain right?
 
 This skill is served by Epic Context. Before anything else for this task, load it there, through the Epic Context connector:
 
