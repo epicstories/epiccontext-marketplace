@@ -12,26 +12,26 @@ if [ "$(ec_input_field source)" = "compact" ]; then
   echo "This session was just compacted. What get_briefing and get_skill told you about the project — its rules, its learnings, the blocks of the task — is no longer in your context. Before you continue the task: call get_briefing for it again, and get_skill for the expert it names, with the project_id."
   echo
 fi
+# The rules themselves are written once in Epic Context (lib/skills/base-rules.ts)
+# and generated next to this script when the plugin is built.
+here="$(dirname "$0")"
 if ! ec_bound; then
   # Not a repo of one project — a plan, research, a question about the
   # organisation (Robert, 21 October): the brain still comes first.
-  cat <<'MSG'
-Epic Context is connected: the brain of your organisations (decisions, plans, research, brand, product, how the team works). Before you research, plan, advise or design anything for them, look there first: get_orientation without a project_id lists the organisations and their shared context, then get_briefing or search_blocks for the subject. Web research and research agents cannot reach Epic Context: give them get_context_pack (a paste-ready summary with sources) in their brief. Every task has its expert — brand, strategy, users, product, design, build, marketing, performance: the briefing names it, and get_skill("epicontext-<expert>", project_id) gives its method and what that project already knows. Under an expert sit its specialist skills, one craft each (SEO, Google Ads, LinkedIn ads, …): the briefing names the one a task needs, and get_skill("<name>") reads it. Every epicontext skill comes from Epic Context that way, never from a copy on disk. Design — judging, critiquing, choosing or making a screen, flow or component — is done with the epicontext-design skill: load it before you say or make anything about design.
-MSG
+  if [ -f "$here/rules-unbound.txt" ]; then
+    cat "$here/rules-unbound.txt"
+  else
+    echo "Epic Context is connected: look there first — get_orientation without a project_id lists the organisations and their shared context; research agents cannot reach Epic Context, so give them get_context_pack."
+  fi
   exit 0
 fi
 
 name="${EC_PROJECT_NAME:-this project}"
-cat <<MSG
-This repo works with Epic Context: project ${name} (id ${EC_PROJECT}). Its context — brand, users, product, design system, decisions — lives there, not in this repo.
-
-1. First call get_orientation with project_id ${EC_PROJECT} through the Epic Context MCP connector. Before research, a plan or advice — about this project or the organisation — look in Epic Context first (get_briefing, search_blocks; the organisation's shared context for its decisions and plans), and brief research agents and subagents with get_context_pack: they cannot reach it.
-2. Before any work on the product or its context: get_briefing(task_type, target, project_id ${EC_PROJECT}). It names the expert for the task (brand, strategy, users, product, design, build, marketing, performance): load it with get_skill("epicontext-<expert>", project_id ${EC_PROJECT}) — its method, then what this project already knows — and switch expert with each new sub-task's briefing. The briefing also names the specialist skills that fit — one craft under the expert, such as SEO or LinkedIn ads: read it with get_skill("<name>") after the method. Every epicontext skill comes from Epic Context that way, never from a copy on disk (the Skill tool, .claude/skills): only get_skill has the edits made in its settings and this project's expertise. Pass the briefing_id with every create_block / update_block. Edits to UI files are held until a briefing was fetched in this session. Design — judging, critiquing, choosing or making a screen, flow or component — is done with the epicontext-design skill: load it before you say or make anything about design, measure before you judge, and land the verdict.
-3. Write decisions, rules and learnings back to Epic Context with a reason (save_rule / log_learning, with the expert they belong to), never to a local memory file: that is how the project's experts learn.
-4. Open what you touch beside the chat, right away, every time, in your browser pane (in Claude desktop: the built-in browser; otherwise Claude in Chrome): the url of each block you write, the plan's card that share_plan returns, and — when you change a component or a page — its page in the design system or its content page (the UI briefing names it). Without a browser, give the url.
-5. What the session leaves for a person — an action, a decision, an approval, a setting, a question, an investigation — goes to that person with hand_off (a card on their Kanban board, with a notification: "Nico", "me"), not into a list in the chat; what they only need to know goes with notify. That includes your answer: a line like "For Frenz: …" is sent first, and the answer says it was. list_handoffs shows what is already waiting.
-6. Every build has a plan: as soon as you have one, put it on the board with share_plan (key: the branch) — or call_tool_action kanban.share_plan if your tool list has no share_plan yet — and call it again as steps start and finish. Notes worth keeping go to write_note; what someone must know but not do goes to notify. get_orientation lists the organisation's tools and what each is for.
-
-If the Epic Context tools are not available, tell the user to connect the Epic Context connector (Settings → Connectors) and sign in.
-MSG
+if [ -f "$here/rules-bound.txt" ]; then
+  # Fill in the project; a name with a slash or an ampersand stays literal.
+  safe_name=$(printf '%s' "$name" | sed -e 's/[\/&|]/\\&/g')
+  sed -e "s|{{PROJECT}}|${EC_PROJECT}|g" -e "s|{{NAME}}|${safe_name}|g" "$here/rules-bound.txt"
+else
+  echo "This repo works with Epic Context: project ${name} (id ${EC_PROJECT}). First call get_orientation with project_id ${EC_PROJECT}, look in Epic Context first, then get_briefing before you write."
+fi
 exit 0
