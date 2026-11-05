@@ -2,7 +2,7 @@
 name: epicontext-design
 description: "Use to design, judge, iterate on or choose between UI/UX designs in an EpicContext project: a screen, flow or component; a critique of a screenshot, Figma frame or prototype ('beoordeel dit scherm', 'welke variant'); directions or a redesign; the /design canvas; the design system and brandbook. The Design expert, with Robert's standard; get_skill with project_id adds the project's design rules."
 metadata:
-  epic.requires: "brand_asset,brand_moodboard,brand_visual_identity,component_spec,design_application,figma_embed,persona,storybook_link,tone_of_voice"
+  epic.requires: "brand_asset,brand_moodboard,brand_style,brand_visual_identity,component_spec,design_application,figma_embed,persona,storybook_link,tone_of_voice"
   epic.version: "1.0.0"
   epic.served: "get_skill"
 ---
