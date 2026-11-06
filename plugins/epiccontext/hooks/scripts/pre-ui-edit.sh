@@ -31,7 +31,7 @@ if [ -n "$route" ]; then
     held_page="$(ec_marker "held-page-$key" "$session")"
     [ -f "$held_page" ] && exit 0
     touch "$held_page" 2>/dev/null || true
-    reason="$(printf 'Epic Context: this file draws the page %s. Call get_briefing(task_type: "ui-page", target: "%s", project_id: "%s") through the Epic Context MCP connector before you change it. It brings the page, its template and its components; if the page is not in the brain yet, it says so with the create_block call to make — write that page in this change, because the prototype and the widget show the context of a page only through it. Load the epicontext-design skill with get_skill and the project_id if you have not. Then make this edit again. If the Epic Context tools are not available in this session, say so to the user and retry the edit; it will go through.' "$route" "$route" "$EC_PROJECT" | ec_json_string)" || exit 0
+    reason="$(printf 'Epic Context: this file draws the page %s. Call get_briefing(task_type: "ui-page", target: "%s", task: "<the task in a sentence>", project_id: "%s") through the Epic Context MCP connector before you change it. It brings the page, its template and its components; if the page is not in the brain yet, it says so with the create_block call to make — write that page in this change, because the prototype and the widget show the context of a page only through it. Load the epicontext-design skill with get_skill and the project_id if you have not. Then make this edit again. If the Epic Context tools are not available in this session, say so to the user and retry the edit; it will go through.' "$route" "$route" "$EC_PROJECT" | ec_json_string)" || exit 0
     printf '{"hookSpecificOutput":{"hookEventName":"PreToolUse","permissionDecision":"deny","permissionDecisionReason":%s}}\n' "$reason"
     exit 0
   fi
@@ -58,6 +58,6 @@ base="$(basename "$file")"
 target="${base%.*}"
 task_type="ui-component"
 [ -n "$route" ] && { task_type="ui-page"; target="$route"; }
-reason="$(printf 'Epic Context: read before you change UI. Call get_briefing(task_type: "%s", target: "%s", project_id: "%s") through the Epic Context MCP connector, follow it — design is judged with the epicontext-design skill: load it with get_skill and the project_id if you have not, so you also get the design rules of this project — then make this edit again and pass its briefing_id when you write context. If the Epic Context tools are not available in this session, say so to the user and retry the edit; it will go through.' "$task_type" "$target" "$EC_PROJECT" | ec_json_string)" || exit 0
+reason="$(printf 'Epic Context: read before you change UI. Call get_briefing(task_type: "%s", target: "%s", task: "<the task in a sentence>", project_id: "%s") through the Epic Context MCP connector, follow it — design is judged with the epicontext-design skill: load it with get_skill and the project_id if you have not, so you also get the design rules of this project — then make this edit again and pass its briefing_id when you write context. If the Epic Context tools are not available in this session, say so to the user and retry the edit; it will go through.' "$task_type" "$target" "$EC_PROJECT" | ec_json_string)" || exit 0
 printf '{"hookSpecificOutput":{"hookEventName":"PreToolUse","permissionDecision":"deny","permissionDecisionReason":%s}}\n' "$reason"
 exit 0
