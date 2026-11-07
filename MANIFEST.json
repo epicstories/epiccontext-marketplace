@@ -1,7 +1,7 @@
 {
-  "version": "0.1.47",
+  "version": "0.1.48",
   "mcp_url": "https://www.epiccontext.com/api/mcp",
-  "library_hash": "9c0255ab6feeb0c5",
+  "library_hash": "15fc1d4b17fb2ba2",
   "skills": [
     {
       "name": "epicontext-brand",
@@ -17,7 +17,7 @@
     {
       "name": "epicontext-build",
       "version": "1.0.0",
-      "contenthash": "05813d4ebd0ade52",
+      "contenthash": "c5048381c6ff0c89",
       "requires": [
         "api_endpoint",
         "api_spec",
@@ -40,13 +40,13 @@
     {
       "name": "epicontext-context",
       "version": "1.0.0",
-      "contenthash": "8c3abacf05e6d574",
+      "contenthash": "41a493efe2674556",
       "requires": []
     },
     {
       "name": "epicontext-core",
       "version": "1.0.0",
-      "contenthash": "142bfaf6da6eedd3",
+      "contenthash": "2a145f9b71d26f71",
       "requires": []
     },
     {
@@ -93,7 +93,7 @@
     {
       "name": "epicontext-product",
       "version": "1.0.0",
-      "contenthash": "abb9da310b0bfee3",
+      "contenthash": "2fc0e7f8106b3fc1",
       "requires": [
         "content_page",
         "feature",
@@ -129,7 +129,7 @@
     {
       "name": "epicontext-users",
       "version": "1.0.0",
-      "contenthash": "8e71a55958789b38",
+      "contenthash": "542a6e43e70b20fc",
       "requires": [
         "competitor",
         "customer_insight",
