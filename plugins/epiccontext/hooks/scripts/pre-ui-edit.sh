@@ -30,7 +30,7 @@ if [ -n "$route" ]; then
   if [ ! -f "$(ec_marker "page-$key" "$session")" ]; then
     held_page="$(ec_marker "held-page-$key" "$session")"
     [ -f "$held_page" ] && exit 0
-    touch "$held_page" 2>/dev/null || true
+    touch "$held_page" 2>/dev/null || exit 0  # no place to remember the hold: never deny for ever
     reason="$(printf 'Epic Context: this file draws the page %s. Call get_briefing(task_type: "ui-page", target: "%s", task: "<the task in a sentence>", project_id: "%s") through the Epic Context MCP connector before you change it. It brings the page, its template and its components; if the page is not in the brain yet, it says so with the create_block call to make — write that page in this change, because the prototype and the widget show the context of a page only through it. Load the epicontext-design skill with get_skill and the project_id if you have not. Then make this edit again. If the Epic Context tools are not available in this session, say so to the user and retry the edit; it will go through.' "$route" "$route" "$EC_PROJECT" | ec_json_string)" || exit 0
     printf '{"hookSpecificOutput":{"hookEventName":"PreToolUse","permissionDecision":"deny","permissionDecisionReason":%s}}\n' "$reason"
     exit 0
@@ -42,7 +42,7 @@ if [ -f "$(ec_marker briefed "$session")" ]; then
   [ -f "$(ec_marker designed "$session")" ] && exit 0
   held_design="$(ec_marker held-design "$session")"
   [ -f "$held_design" ] && exit 0
-  touch "$held_design" 2>/dev/null || true
+  touch "$held_design" 2>/dev/null || exit 0  # no place to remember the hold: never deny for ever
   reason="$(printf 'Epic Context: you have the briefing; now load the design skill before this UI edit — get_skill(name: "epicontext-design", project_id: "%s") through the Epic Context connector, its method and this project'"'"'s design rules. Then make the edit again, and name the principle behind each change. If the Epic Context tools are not available in this session, say so to the user and retry the edit; it will go through.' "$EC_PROJECT" | ec_json_string)" || exit 0
   printf '{"hookSpecificOutput":{"hookEventName":"PreToolUse","permissionDecision":"deny","permissionDecisionReason":%s}}\n' "$reason"
   exit 0
@@ -52,7 +52,7 @@ held="$(ec_marker held "$session")"
 if [ -f "$held" ]; then
   exit 0
 fi
-touch "$held" 2>/dev/null || true
+touch "$held" 2>/dev/null || exit 0  # no place to remember the hold: never deny for ever
 
 base="$(basename "$file")"
 target="${base%.*}"

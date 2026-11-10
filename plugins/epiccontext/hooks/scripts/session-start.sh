@@ -28,9 +28,14 @@ fi
 
 name="${EC_PROJECT_NAME:-this project}"
 if [ -f "$here/rules-bound.txt" ]; then
-  # Fill in the project; a name with a slash or an ampersand stays literal.
-  safe_name=$(printf '%s' "$name" | sed -e 's/[\/&|]/\\&/g')
-  sed -e "s|{{PROJECT}}|${EC_PROJECT}|g" -e "s|{{NAME}}|${safe_name}|g" "$here/rules-bound.txt"
+  # Fill in the project literally: the name comes from a committed file, and
+  # sed would read its characters as commands.
+  if command -v node >/dev/null 2>&1; then
+    EC_P="$EC_PROJECT" EC_N="$name" node -e 'const t = require("fs").readFileSync(process.argv[1], "utf8"); process.stdout.write(t.split("{{PROJECT}}").join(process.env.EC_P).split("{{NAME}}").join(process.env.EC_N));' "$here/rules-bound.txt"
+  else
+    safe_name=$(printf '%s' "$name" | sed -e 's/[\\/&|]/\\&/g')
+    sed -e "s|{{PROJECT}}|${EC_PROJECT}|g" -e "s|{{NAME}}|${safe_name}|g" "$here/rules-bound.txt"
+  fi
 else
   echo "This repo works with Epic Context: project ${name} (id ${EC_PROJECT}). First call get_orientation with project_id ${EC_PROJECT}, look in Epic Context first, then get_briefing before you write."
 fi

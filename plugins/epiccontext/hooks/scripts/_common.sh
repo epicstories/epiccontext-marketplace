@@ -4,19 +4,29 @@
 # signed in to, and the hooks make sure it does. Never fails a session.
 #
 # A repo is bound to a project by an `.epicontext` file with the project id
-# (no secrets — it can be committed). Without one the hooks stay quiet, so a
-# plugin installed for the whole machine only acts in Epic Context repos.
+# (no secrets — it can be committed). Without one a session gets a single
+# orientation line at its start (look in Epic Context first) and the other
+# hooks stay quiet.
 
 EC_DIR="${CLAUDE_PROJECT_DIR:-$PWD}"
 EC_CONFIG="$EC_DIR/.epicontext"
 
-# A string field out of the project's .epicontext without needing jq.
+# A string field out of the project's .epicontext: as JSON where node is there
+# (a name may hold quotes), else the first match, without needing jq.
 ec_field() {
   [ -f "$EC_CONFIG" ] || return 0
+  if command -v node >/dev/null 2>&1; then
+    node -e 'try { const c = JSON.parse(require("fs").readFileSync(process.argv[1], "utf8")); const v = (c.project && c.project[process.argv[2]]) ?? c[process.argv[2]]; if (typeof v === "string") process.stdout.write(v.replace(/[\r\n]+/g, " ").slice(0, 200)); } catch {}' "$EC_CONFIG" "$1" 2>/dev/null
+    return 0
+  fi
   sed -n "s/.*\"$1\"[[:space:]]*:[[:space:]]*\"\([^\"]*\)\".*/\1/p" "$EC_CONFIG" | head -n1
 }
 
 EC_PROJECT="$(ec_field id)"
+# Only an id that looks like one. The file is committed and the id goes into
+# the rules text and into commands, so anything else leaves the repo unbound
+# (audit, 8 November 2026).
+printf '%s' "$EC_PROJECT" | grep -Eq '^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$' || EC_PROJECT=""
 EC_PROJECT_NAME="$(ec_field name)"
 
 ec_bound() {

@@ -39,11 +39,15 @@ for (const e of entries) for (const p of parts(e)) {
   }
 }
 const needed = new Set();
+// Only a UI page briefing, and only a route: the text of a briefing also
+// carries blocks anyone wrote, and what is taken here becomes the reason a
+// Stop hook gives (audit, 8 November 2026).
+const ROUTE = /^\/[A-Za-z0-9\/_.\[\]-]{0,200}$/;
 for (const u of uses) {
-  if (!/__get_briefing$/.test(u.name ?? "")) continue;
+  if (!/__get_briefing$/.test(u.name ?? "") || u.input?.task_type !== "ui-page") continue;
   const text = results.get(u.id) ?? "";
   if (!text.includes("is not in the brain yet")) continue;
-  for (const m of text.matchAll(/No `content_page` for `([^`]+)`/g)) needed.add(m[1]);
+  for (const m of text.matchAll(/No `content_page` for `([^`\n]+)`/g)) if (ROUTE.test(m[1]) && needed.size < 10) needed.add(m[1]);
 }
 if (needed.size === 0) process.exit(0);
 const keyOf = (r) => "content-page-" + (r.replace(/^\//, "").replace(/[^a-z0-9]+/gi, "-").replace(/^-+|-+$/g, "").toLowerCase() || "home");

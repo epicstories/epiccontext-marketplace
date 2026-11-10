@@ -41,11 +41,24 @@ if [ -n "$cwd" ]; then cd "$cwd" 2>/dev/null || true; fi
 git rev-parse --is-inside-work-tree >/dev/null 2>&1 || exit 0
 
 base_file="/tmp/ec-ctx-base-${session_id:-default}"
+dirty_file="/tmp/ec-ctx-dirty-${session_id:-default}"
 marker_file="/tmp/ec-ctx-reminded-${session_id:-default}"
+
+# Every uncommitted file (untracked ones each on their own) with the hash of
+# what it holds now: "<hash> <path>" per line, "-" when it cannot be read.
+dirty_snapshot() {
+  git status --porcelain --untracked-files=all 2>/dev/null \
+    | sed 's/^...//; s/.* -> //' \
+    | while IFS= read -r f; do
+        [ -n "$f" ] || continue
+        printf '%s %s\n' "$(git hash-object -- "$f" 2>/dev/null || echo -)" "$f"
+      done
+}
 
 # ── session-start: remember where we began ──────────────────────────────
 if [ "$phase" = "session-start" ]; then
   git rev-parse HEAD > "$base_file" 2>/dev/null || true
+  dirty_snapshot > "$dirty_file" 2>/dev/null || true
   rm -f "$marker_file" 2>/dev/null || true
   exit 0
 fi
@@ -63,17 +76,24 @@ base=""
 [ -f "$base_file" ] && base="$(cat "$base_file" 2>/dev/null || true)"
 
 # Files changed this session = committed-since-base + working tree + untracked.
+# Uncommitted work that was already there at session-start, unchanged since,
+# is not this session's: a session that only answered a question beside
+# half-done work must not be told it changed product code.
 changed=""
 if [ -n "$base" ]; then
   changed="$(git diff --name-only "$base" HEAD 2>/dev/null || true)"
 fi
+worktree="$(dirty_snapshot)"
+if [ -f "$dirty_file" ] && [ -s "$dirty_file" ]; then
+  worktree="$(printf '%s\n' "$worktree" | grep -vxF -f "$dirty_file" 2>/dev/null || true)"
+fi
 changed="$changed
-$(git status --porcelain 2>/dev/null | sed 's/^...//' || true)"
+$(printf '%s\n' "$worktree" | sed 's/^[^ ]* //')"
 
 # ── Condition 1: PRODUCT code changed. Skills/docs/tests/stories and the
 # hook itself don't, on their own, demand a graph update.
 code="$(printf '%s\n' "$changed" \
-  | grep -E '\.(ts|tsx|js|jsx|sql)$' \
+  | grep -E '\.(ts|tsx|js|jsx|mjs|cjs|sql|py|go|rb|php|java|kt|kts|swift|rs|cs|vue|svelte|astro|dart|ex|exs|scala)$' \
   | grep -vE '(^|/)\.claude/' \
   | grep -vE '\.(test|spec|stories)\.' \
   | sort -u | sed '/^$/d')"
