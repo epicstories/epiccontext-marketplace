@@ -1,7 +1,7 @@
 {
-  "version": "0.1.57",
+  "version": "0.1.58",
   "mcp_url": "https://www.epiccontext.com/api/mcp",
-  "library_hash": "c9345fad6adbb1d8",
+  "library_hash": "34321430cb1a66d2",
   "skills": [
     {
       "name": "epicontext-brand",
@@ -123,7 +123,7 @@
     {
       "name": "epicontext-suite",
       "version": "1.0.0",
-      "contenthash": "fbb41429f9742734",
+      "contenthash": "4c595a47502528df",
       "requires": []
     },
     {
