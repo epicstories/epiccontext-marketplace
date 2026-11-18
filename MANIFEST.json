@@ -1,12 +1,12 @@
 {
-  "version": "0.1.83",
+  "version": "0.1.84",
   "mcp_url": "https://www.epiccontext.com/api/mcp",
-  "library_hash": "ab104df9a6270914",
+  "library_hash": "1a825c456f1d221f",
   "skills": [
     {
       "name": "epicontext-brand",
       "version": "1.0.0",
-      "contenthash": "5caace5c7bbda6f2",
+      "contenthash": "10ec21fdd4f8b4b5",
       "requires": [
         "brand_positioning",
         "messaging_framework",
@@ -17,7 +17,7 @@
     {
       "name": "epicontext-build",
       "version": "1.0.0",
-      "contenthash": "be8c5ec4b909f529",
+      "contenthash": "e76dea1ad302572a",
       "requires": [
         "api_endpoint",
         "api_spec",
@@ -46,13 +46,13 @@
     {
       "name": "epicontext-core",
       "version": "1.0.0",
-      "contenthash": "5ae9364a4703d24f",
+      "contenthash": "5934a6eeff025c19",
       "requires": []
     },
     {
       "name": "epicontext-design",
       "version": "1.0.0",
-      "contenthash": "b862b56c6646beb1",
+      "contenthash": "f52ded076eacb519",
       "requires": [
         "brand_asset",
         "brand_moodboard",
@@ -69,7 +69,7 @@
     {
       "name": "epicontext-marketing",
       "version": "1.0.0",
-      "contenthash": "4aa799d693cef240",
+      "contenthash": "1491aca8e5b4af0e",
       "requires": [
         "campaign",
         "channel",
@@ -80,7 +80,7 @@
     {
       "name": "epicontext-performance",
       "version": "1.0.0",
-      "contenthash": "f02a22a0538c6632",
+      "contenthash": "068383ea563c271b",
       "requires": [
         "analytics_event",
         "feedback",
@@ -93,7 +93,7 @@
     {
       "name": "epicontext-product",
       "version": "1.0.0",
-      "contenthash": "86a256163a1daf73",
+      "contenthash": "3d067001286377d4",
       "requires": [
         "content_page",
         "feature",
@@ -107,7 +107,7 @@
     {
       "name": "epicontext-strategy",
       "version": "1.0.0",
-      "contenthash": "21ccb0e016ad6886",
+      "contenthash": "692133aa1c8269a0",
       "requires": [
         "business_case",
         "business_model_canvas",
@@ -129,7 +129,7 @@
     {
       "name": "epicontext-users",
       "version": "1.0.0",
-      "contenthash": "723864b042258306",
+      "contenthash": "55a73026367f58fd",
       "requires": [
         "competitor",
         "customer_insight",
