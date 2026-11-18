@@ -17,6 +17,14 @@ set -u
 EC_INPUT="$(cat 2>/dev/null || true)"
 . "$(dirname "$0")/_common.sh"
 
+# A repo that registers this hook itself (.claude/settings.json, as the Epic
+# Context codebase does) already runs its own copy: the installed plugin's
+# copy defers, so each event fires once, not twice.
+case "$(cd "$(dirname "$0")" 2>/dev/null && pwd)" in
+  "$EC_DIR"/*) ;;
+  *) grep -qs 'skill-from-server\.sh' "$EC_DIR/.claude/settings.json" && exit 0 ;;
+esac
+
 served_call() {
   if ec_bound; then
     printf 'get_skill(name: "%s", project_id: "%s")' "$1" "$EC_PROJECT"
