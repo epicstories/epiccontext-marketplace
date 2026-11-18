@@ -111,12 +111,19 @@ code="$(printf '%s\n' "$changed" \
 # graph. All signals are deterministic; anything unreadable → no signal.
 transcript="$(get_field transcript_path)"
 
+# True when the transcript holds an actual CALL of a tool whose name matches the
+# regex $1. Anchored on the tool_use block: a bare `"name": "Artifact"` also
+# appears in the tool DEFINITIONS the transcript carries, so it matched every
+# session (and mistook a mere definition of create_block for a graph write).
+used_tool() {
+  [ -n "$transcript" ] && [ -r "$transcript" ] || return 1
+  grep -qE "\"type\"[[:space:]]*:[[:space:]]*\"tool_use\"[[:space:]]*,[[:space:]]*\"id\"[[:space:]]*:[[:space:]]*\"[^\"]*\"[[:space:]]*,[[:space:]]*\"name\"[[:space:]]*:[[:space:]]*\"($1)\"" \
+    "$transcript" 2>/dev/null
+}
+
 graph_write="no"
-if [ -n "$transcript" ] && [ -r "$transcript" ]; then
-  if grep -qE '"name"[[:space:]]*:[[:space:]]*"[^"]*(create_block|update_block|ingest_text|ingest_comments|propose_delta|commit_skill_delta)"' \
-      "$transcript" 2>/dev/null; then
-    graph_write="yes"
-  fi
+if used_tool '[^"]*(create_block|update_block|ingest_text|ingest_comments|propose_delta|commit_skill_delta)'; then
+  graph_write="yes"
 fi
 
 deliverable=""
@@ -125,14 +132,12 @@ deliverable=""
 plans="$(printf '%s\n' "$changed" | grep -E '(^|/)plans/.*\.md$' | sort -u | sed '/^$/d')"
 [ -n "$plans" ] && deliverable="plan file(s) in the repository"
 # A published artifact (a report or page delivered outside the graph).
-if [ -n "$transcript" ] && [ -r "$transcript" ]; then
-  if grep -qE '"name"[[:space:]]*:[[:space:]]*"Artifact"' "$transcript" 2>/dev/null; then
-    deliverable="${deliverable:+$deliverable, }a published artifact"
-  fi
-  # A plan presented via plan mode.
-  if grep -qE '"name"[[:space:]]*:[[:space:]]*"ExitPlanMode"' "$transcript" 2>/dev/null; then
-    deliverable="${deliverable:+$deliverable, }a plan-mode plan"
-  fi
+if used_tool 'Artifact'; then
+  deliverable="${deliverable:+$deliverable, }a published artifact"
+fi
+# A plan presented via plan mode.
+if used_tool 'ExitPlanMode'; then
+  deliverable="${deliverable:+$deliverable, }a plan-mode plan"
 fi
 
 unlanded=""
