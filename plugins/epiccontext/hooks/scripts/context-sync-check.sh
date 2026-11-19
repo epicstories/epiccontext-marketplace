@@ -122,7 +122,7 @@ used_tool() {
 }
 
 graph_write="no"
-if used_tool '[^"]*(create_block|update_block|ingest_text|ingest_comments|propose_delta|commit_skill_delta)'; then
+if used_tool '[^"]*(create_block|update_block|ingest_text|ingest_comments|propose_delta)'; then
   graph_write="yes"
 fi
 
