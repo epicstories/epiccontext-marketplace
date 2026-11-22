@@ -1,6 +1,6 @@
 ---
 name: epicontext-performance
-description: "Use for measurement: analytics, a KPI or metric, a dashboard, NPS, feedback, conversion, retention, or a signal to classify as a problem, trade-off, drift or noise. The Performance expert: its method, then what this organisation and project know (get_skill with project_id). Populates and audits the Performance group against the OGSM measures."
+description: "Use for measurement: analytics, a KPI or metric, a dashboard, NPS, feedback, conversion, retention, or a signal to classify as a problem, trade-off, drift or noise. The Performance expert: its method, then what this organisation and project know (get_skill with project_id). Populates and audits the Performance group against the goals in the strategy."
 metadata:
   epic.requires: "analytics_event,feedback,insight,kpi,metric,north_star"
   epic.version: "1.0.0"
