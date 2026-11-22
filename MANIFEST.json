@@ -1,7 +1,7 @@
 {
-  "version": "0.1.93",
+  "version": "0.1.94",
   "mcp_url": "https://www.epiccontext.com/api/mcp",
-  "library_hash": "0b717da97076d492",
+  "library_hash": "9a599ede6cad7c7d",
   "skills": [
     {
       "name": "epicontext-brand",
@@ -17,7 +17,7 @@
     {
       "name": "epicontext-build",
       "version": "1.0.0",
-      "contenthash": "e76dea1ad302572a",
+      "contenthash": "345bba36e6bd06a1",
       "requires": [
         "api_endpoint",
         "api_spec",
@@ -123,7 +123,7 @@
     {
       "name": "epicontext-suite",
       "version": "1.0.0",
-      "contenthash": "58a3f8688a558fd9",
+      "contenthash": "a9c837a290059b08",
       "requires": []
     },
     {
