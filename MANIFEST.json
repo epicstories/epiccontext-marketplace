@@ -1,12 +1,12 @@
 {
-  "version": "0.1.98",
+  "version": "0.1.99",
   "mcp_url": "https://www.epiccontext.com/api/mcp",
-  "library_hash": "583a6a3414722476",
+  "library_hash": "61e71a250b570dae",
   "skills": [
     {
       "name": "epicontext-brand",
       "version": "1.0.0",
-      "contenthash": "10ec21fdd4f8b4b5",
+      "contenthash": "8f546b69d9d6afdd",
       "requires": [
         "brand_positioning",
         "messaging_framework",
@@ -46,7 +46,7 @@
     {
       "name": "epicontext-core",
       "version": "1.0.0",
-      "contenthash": "ff644861a57f7ed7",
+      "contenthash": "5af796f935f7982b",
       "requires": []
     },
     {
@@ -69,7 +69,7 @@
     {
       "name": "epicontext-marketing",
       "version": "1.0.0",
-      "contenthash": "ee2c3fbbb260c112",
+      "contenthash": "7ff53c1f91a423c1",
       "requires": [
         "campaign",
         "channel",
@@ -80,7 +80,7 @@
     {
       "name": "epicontext-performance",
       "version": "1.0.0",
-      "contenthash": "e772b9888953cbaa",
+      "contenthash": "77b11e7b6953a6b1",
       "requires": [
         "analytics_event",
         "feedback",
@@ -93,7 +93,7 @@
     {
       "name": "epicontext-product",
       "version": "1.0.0",
-      "contenthash": "3d067001286377d4",
+      "contenthash": "7570636dd70c7335",
       "requires": [
         "content_page",
         "feature",
@@ -107,7 +107,7 @@
     {
       "name": "epicontext-strategy",
       "version": "1.0.0",
-      "contenthash": "e761e08c1779f996",
+      "contenthash": "d955993b50431ad8",
       "requires": [
         "business_case",
         "business_model_canvas",
@@ -129,7 +129,7 @@
     {
       "name": "epicontext-users",
       "version": "1.0.0",
-      "contenthash": "55a73026367f58fd",
+      "contenthash": "17fc098e663675d2",
       "requires": [
         "competitor",
         "customer_insight",
